@@ -14,6 +14,10 @@
 	<h:form>
 		<h:commandLink action="#{sessionController.logout()}" value="Logout"></h:commandLink>
 	</h:form>
+	<h:form>
+		<h:commandLink action="#{sessionController.wakeUp()}" value="Wake the database up."></h:commandLink>
+		<h:outputText value="#{sessionController.wakeUp()}" escape="false" />
+	</h:form>
 </div>
 </h:body>
 </html>

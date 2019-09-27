@@ -44,6 +44,14 @@ public class Device implements Serializable {
     public Device() {
     }
 
+    public Device(String name, String url, User owner, boolean online, boolean available) {
+        this.name = name;
+        this.url = url;
+        this.owner = owner;
+        this.online = online;
+        this.available = available;
+    }
+
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }

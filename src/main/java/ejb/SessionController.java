@@ -1,10 +1,17 @@
 package ejb;
 
+import entities.Device;
+import entities.Subscription;
+import entities.User;
+
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.List;
 
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
+import javax.jms.JMSException;
+import javax.jms.Session;
 import javax.servlet.http.HttpSession;
 
 /**
@@ -20,6 +27,8 @@ import javax.servlet.http.HttpSession;
 public class SessionController implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+
+	private Controller controller;
 
 	private String password;
 
@@ -40,7 +49,10 @@ public class SessionController implements Serializable {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	
+
+	private String returnmessage;
+
+	public String getReturnmessage(){return returnmessage;}
 
 	public String validateUsernamePassword() {
 		HttpSession session = SessionUtils.getSession();
@@ -60,6 +72,29 @@ public class SessionController implements Serializable {
 			SessionUtils.getResponse().sendRedirect(Constants.LOGIN + ".xhtml");
 		}
 		return Constants.INDEX;
+	}
+
+	public void wakeUp() throws JMSException {
+		Dao dao = controller.getDao();
+		User owner = new User("Olemann", "1234");
+		User owner2 = new User("Lisedame", "abcd");
+		Device owned = new Device("BergenRegn", "wwww.someurl.com", owner, false, false);
+		Device subscribed = new Device("BergenSol", "wwww.someotherurl.com", owner2, true, true);
+		owner.addOwnedDevice(owned);
+		owner2.addOwnedDevice(subscribed);
+		Subscription subscription = new Subscription(owner, subscribed, true);
+		owner.addSubscriptions(subscription);
+		dao.persist(owner);
+		dao.persist(owner2);
+		dao.persist(subscribed);
+		dao.persist(subscription);
+
+		List<Device> devicesList = dao.getAllDevices();
+		if(devicesList.contains(owned) && devicesList.contains(subscribed)) {
+			returnmessage = "Upload successfull, first entry is: " + owned.getName();
+		}else{
+			returnmessage = "Upload unsuccessfull, contact a programming adult";
+		}
 	}
 
 }

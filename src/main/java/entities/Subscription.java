@@ -36,6 +36,12 @@ public class Subscription implements Serializable {
     public Subscription() {
     }
 
+    public Subscription(User user, Device device, boolean verified) {
+        this.user = user;
+        this.device = device;
+        this.verified = verified;
+    }
+
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }

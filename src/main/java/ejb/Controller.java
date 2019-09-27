@@ -41,6 +41,10 @@ public class Controller implements Serializable {
 
 	}
 
+	public Dao getDao() {
+		return dao;
+	}
+
 	public Device getDevice() {
 		if (this.device == null) {
 			device = new Device();

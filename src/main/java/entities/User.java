@@ -3,6 +3,7 @@ package entities;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -63,24 +64,24 @@ public class User implements Serializable {
         return ownedDevices;
     }
 
-    public void setOwnedDevices(List<Device> ownedDevices) {
-        this.ownedDevices = ownedDevices;
+    public void addOwnedDevice(Device d) {
+        this.ownedDevices.add(d);
     }
 
     public List<Subscription> getSubscriptions() {
         return subscriptions;
     }
 
-    public void setSubscriptions(List<Subscription> subscriptions) {
-        this.subscriptions = subscriptions;
+    public void addSubscriptions(Subscription s) {
+        this.subscriptions.add(s);
     }
 
     public List<Feedback> getFeedback() {
         return feedback;
     }
 
-    public void setFeedback(List<Feedback> feedback) {
-        this.feedback = feedback;
+    public void addFeedback(Feedback f) {
+        this.feedback.add(f);
     }
 
     public static final String FIND_ALL = "User.findAll";
@@ -88,5 +89,11 @@ public class User implements Serializable {
     public User() {
     }
 
-
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+        this.ownedDevices = new ArrayList<Device>();
+        this.feedback = new ArrayList<Feedback>();
+        this.subscriptions = new ArrayList<Subscription>();
+    }
 }

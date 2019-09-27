@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="db2019_g02@data2.hib.no" uuid="071eb9f8-8632-4794-b1fc-e9d7c4f48b2a">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://data2.hib.no:5433/db2019_g02</jdbc-url>
+    </data-source>
+  </component>
+</project>
