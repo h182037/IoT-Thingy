@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="Dat250TweetAdvanced:war exploded">
+  <artifact type="exploded-war" name="IoT-Thingy:war exploded">
     <output-path>$PROJECT_DIR$/target/Dat250TweetAdvanced</output-path>
     <properties id="maven-jee-properties">
       <options>

@@ -21,12 +21,12 @@ import javax.naming.NamingException;
  *   Tweet Controller class for the management of tweets
  */
 
-@Named(value = "tweetController")
+@Named(value = "Controller")
 @RequestScoped
 public class Controller implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	// Injected DAO EJB:
 	@EJB
 	private Dao dao;
@@ -38,11 +38,6 @@ public class Controller implements Serializable {
 		reverseDeviceList.addAll(this.dao.getAllDevices());
 		Collections.reverse(reverseDeviceList);
 		return reverseDeviceList;
-
-	}
-
-	public Dao getDao() {
-		return dao;
 	}
 
 	public Device getDevice() {

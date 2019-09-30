@@ -1,0 +1,10 @@
+ejb\Constants.class
+ejb\SessionUtils.class
+ejb\Controller.class
+entities\Feedback.class
+ejb\Dao.class
+entities\Subscription.class
+entities\User.class
+entities\Tag.class
+entities\Device.class
+ejb\SessionController.class

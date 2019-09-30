@@ -1,6 +1,8 @@
 package ejb;
 
 import entities.Device;
+import entities.Subscription;
+import entities.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,21 +34,16 @@ public class Dao {
     // Injected database connection:
 	@PersistenceContext(unitName="Dat250TweetAdvanced")
     private EntityManager em;
-	
-	
-	@Inject
-	@JMSConnectionFactory("jms/dat250/ConnectionFactory")
-	@JMSSessionMode(JMSContext.AUTO_ACKNOWLEDGE)
-	private JMSContext context;
-	
-	@Resource(lookup = "jms/dat250/Topic")
-	private Topic topic;
-	
+
     // Stores a new tweet:
-    public void persist(Object o) throws JMSException {
-        em.persist(o);
-        //Send the topic to the JMS Topic
-		//context.createProducer().setProperty("topicUser", tweet.getTopic()).send(topic, tweet);
+    public void persistUser(User user) throws NamingException{
+        em.persist(user);
+    }
+    public void persistDevice(Device device) throws NamingException, JMSException{
+        em.persist(device);
+    }
+    public void persistSubscription(Subscription subscription) throws NamingException, JMSException{
+        em.persist(subscription);
     }
 
 	public List<Device> getAllDevices() {

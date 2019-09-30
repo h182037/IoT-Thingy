@@ -12,6 +12,7 @@ import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import javax.jms.JMSException;
 import javax.jms.Session;
+import javax.naming.NamingException;
 import javax.servlet.http.HttpSession;
 
 /**
@@ -50,9 +51,9 @@ public class SessionController implements Serializable {
 		this.username = username;
 	}
 
-	private String returnmessage;
+	private String returnMessage;
 
-	public String getReturnmessage(){return returnmessage;}
+	public String getReturnMessage(){return returnMessage;}
 
 	public String validateUsernamePassword() {
 		HttpSession session = SessionUtils.getSession();
@@ -74,8 +75,8 @@ public class SessionController implements Serializable {
 		return Constants.INDEX;
 	}
 
-	public void wakeUp() throws JMSException {
-		Dao dao = controller.getDao();
+	public void wakeUp() throws JMSException, NamingException {
+		Dao dao = new Dao();
 		User owner = new User("Olemann", "1234");
 		User owner2 = new User("Lisedame", "abcd");
 		Device owned = new Device("BergenRegn", "wwww.someurl.com", owner, false, false);
@@ -84,16 +85,16 @@ public class SessionController implements Serializable {
 		owner2.addOwnedDevice(subscribed);
 		Subscription subscription = new Subscription(owner, subscribed, true);
 		owner.addSubscriptions(subscription);
-		dao.persist(owner);
-		dao.persist(owner2);
-		dao.persist(subscribed);
-		dao.persist(subscription);
+		dao.persistUser(owner);
+		dao.persistUser(owner2);
+		dao.persistDevice(subscribed);
+		dao.persistSubscription(subscription);
 
 		List<Device> devicesList = dao.getAllDevices();
 		if(devicesList.contains(owned) && devicesList.contains(subscribed)) {
-			returnmessage = "Upload successfull, first entry is: " + owned.getName();
+			returnMessage = "Upload successful, first entry is: " + owned.getName();
 		}else{
-			returnmessage = "Upload unsuccessfull, contact a programming adult";
+			returnMessage = "Upload unsuccessful, contact a programming adult";
 		}
 	}
 
