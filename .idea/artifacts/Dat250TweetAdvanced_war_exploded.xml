@@ -1,0 +1,35 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Dat250TweetAdvanced:war exploded">
+    <output-path>$PROJECT_DIR$/target/Dat250TweetAdvanced</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>true</exploded>
+        <module>Dat250TweetAdvanced</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Dat250TweetAdvanced" />
+          <element id="jpa-descriptors" facet="Dat250TweetAdvanced/jpa/JPA" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: javax.persistence:persistence-api:1.0.2" />
+          <element id="library" level="project" name="Maven: com.google.code.gson:gson:2.8.5" />
+          <element id="library" level="project" name="Maven: postgresql:postgresql:9.1-901-1.jdbc4" />
+          <element id="library" level="project" name="Maven: org.eclipse.persistence:eclipselink:2.7.1" />
+          <element id="library" level="project" name="Maven: org.eclipse.persistence:javax.persistence:2.2.0" />
+          <element id="library" level="project" name="Maven: org.eclipse.persistence:commonj.sdo:2.1.1" />
+          <element id="library" level="project" name="Maven: javax.validation:validation-api:1.1.0.Final" />
+          <element id="library" level="project" name="Maven: org.glassfish:javax.json:1.0.4" />
+          <element id="library" level="project" name="postgresql-42.2.4.jre6" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/Dat250TweetAdvanced/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="Dat250TweetAdvanced/web/Web" />
+    </root>
+  </artifact>
+</component>

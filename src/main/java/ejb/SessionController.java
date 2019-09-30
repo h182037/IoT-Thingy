@@ -51,9 +51,7 @@ public class SessionController implements Serializable {
 		this.username = username;
 	}
 
-	private String returnMessage;
 
-	public String getReturnMessage(){return returnMessage;}
 
 	public String validateUsernamePassword() {
 		HttpSession session = SessionUtils.getSession();
@@ -75,27 +73,6 @@ public class SessionController implements Serializable {
 		return Constants.INDEX;
 	}
 
-	public void wakeUp() throws JMSException, NamingException {
-		Dao dao = new Dao();
-		User owner = new User("Olemann", "1234");
-		User owner2 = new User("Lisedame", "abcd");
-		Device owned = new Device("BergenRegn", "wwww.someurl.com", owner, false, false);
-		Device subscribed = new Device("BergenSol", "wwww.someotherurl.com", owner2, true, true);
-		owner.addOwnedDevice(owned);
-		owner2.addOwnedDevice(subscribed);
-		Subscription subscription = new Subscription(owner, subscribed, true);
-		owner.addSubscriptions(subscription);
-		dao.persistUser(owner);
-		dao.persistUser(owner2);
-		dao.persistDevice(subscribed);
-		dao.persistSubscription(subscription);
 
-		List<Device> devicesList = dao.getAllDevices();
-		if(devicesList.contains(owned) && devicesList.contains(subscribed)) {
-			returnMessage = "Upload successful, first entry is: " + owned.getName();
-		}else{
-			returnMessage = "Upload unsuccessful, contact a programming adult";
-		}
-	}
 
 }

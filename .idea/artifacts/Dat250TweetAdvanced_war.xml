@@ -8,7 +8,7 @@
       </options>
     </properties>
     <root id="archive" name="Dat250TweetAdvanced.war">
-      <element id="artifact" artifact-name="IoT-Thingy:war exploded" />
+      <element id="artifact" artifact-name="Dat250TweetAdvanced:war exploded" />
     </root>
   </artifact>
 </component>
