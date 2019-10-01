@@ -3,14 +3,13 @@ package entities;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @XmlRootElement
 @Table(name="users")
-@NamedQueries({
-        @NamedQuery(name="Users.findAll", query="SELECT u FROM Users u"),
-        @NamedQuery(name="Users.findUsersById", query = "SELECT u FROM Users u WHERE u.id = :uId")
-})
+@NamedQuery(name="Users.findAll", query="SELECT u FROM Users u")
 public class Users implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -23,17 +22,11 @@ public class Users implements Serializable {
     @GeneratedValue(strategy=GenerationType.TABLE,generator="yourTableGenerator")
     private Long id;
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
+    @OneToMany(mappedBy = "subscriber", cascade = CascadeType.ALL)
+    private List<Subscription> subscriptionList;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL)
+    private List<Device> ownedDevices;
 
     private String username;
 
@@ -42,17 +35,36 @@ public class Users implements Serializable {
     public static final String FIND_ALL = "Users.findAll";
 
     public Users(){
+        this.ownedDevices = new ArrayList<>();
+        this.subscriptionList = new ArrayList<>();
     }
-/*
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    private List<Device> ownedDevices;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    private List<Subscription> subscriptions;
+    public void addOwned(Device d){
+        this.ownedDevices.add(d);
+    }
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    private List<Feedback> feedback;
-*/
+    public List<Device> getOwnedDevices() {
+        return ownedDevices;
+    }
+
+    public void setOwnedDevices(List<Device> ownedDevices) {
+        this.ownedDevices = ownedDevices;
+    }
+
+    public void addSubscribed(Subscription s){
+        this.subscriptionList.add(s);
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public List<Subscription> getSubscriptionList() {
+        return subscriptionList;
+    }
+
+    public void setSubscriptionList(List<Subscription> subscriptionList) {
+        this.subscriptionList = subscriptionList;
+    }
 
     public String getUsername() {
         return username;

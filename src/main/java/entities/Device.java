@@ -3,6 +3,8 @@ package entities;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @XmlRootElement
@@ -23,17 +25,19 @@ public class Device implements Serializable {
     private String name;
 
     private String url;
-/*
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    private List<Tag> tags;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    private List<Feedback> feedback;
+    @ManyToOne
+    @JoinColumn(name="owner")
+    private Users users;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "user_id")
-    private User owner;
-*/
+    @OneToMany(mappedBy = "subscribed", cascade = CascadeType.ALL)
+    private List<Subscription> subscriptionList;
+
+    @OneToMany(mappedBy = "target", cascade = CascadeType.ALL)
+    private List<Feedback> feedbackList;
+
+    private String tags;
+
     private boolean online;
 
     private boolean available;
@@ -41,9 +45,49 @@ public class Device implements Serializable {
     public static final String FIND_ALL = "Device.findAll";
 
     public Device() {
+        this.subscriptionList = new ArrayList<>();
+        this.feedbackList = new ArrayList<>();
     }
 
+    public void addFeedback(Feedback f){
+        this.feedbackList.add(f);
+    }
 
+    public void addSubscription(Subscription s){
+        this.subscriptionList.add(s);
+    }
+
+    public List<Feedback> getFeedbackList() {
+        return feedbackList;
+    }
+
+    public void setFeedbackList(List<Feedback> feedbackList) {
+        this.feedbackList = feedbackList;
+    }
+
+    public Users getUsers() {
+        return users;
+    }
+
+    public void setUsers(Users owner) {
+        this.users = owner;
+    }
+
+    public List<Subscription> getSubscriptionList() {
+        return subscriptionList;
+    }
+
+    public void setSubscriptionList(List<Subscription> subscriptionList) {
+        this.subscriptionList = subscriptionList;
+    }
+
+    public String getTags() {
+        return tags;
+    }
+
+    public void setTags(String tags) {
+        this.tags = tags;
+    }
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -89,11 +133,11 @@ public class Device implements Serializable {
         this.feedback = feedback;
     }
 
-    public User getOwner() {
+    public Users getOwner() {
         return owner;
     }
 
-    public void setOwner(User owner) {
+    public void setOwner(Users owner) {
         this.owner = owner;
     }
 */

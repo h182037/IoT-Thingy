@@ -1,6 +1,7 @@
 package ejb;
 
 import entities.Device;
+import entities.Feedback;
 import entities.Subscription;
 import entities.Users;
 
@@ -10,6 +11,7 @@ import javax.ejb.Stateless;
 import javax.jms.JMSException;
 import javax.naming.NamingException;
 import javax.persistence.*;
+import javax.xml.registry.infomodel.User;
 
 /**
  * 
@@ -27,11 +29,11 @@ public class Dao {
     private EntityManager em;
 
     // Stores a new tweet:
-    public void persistUser(Users user) throws NamingException{
-        //EntityManagerFactory emf = Persistence.createEntityManagerFactory("Dat250TweetAdvanced");
-        //em = emf.createEntityManager();
-        em.persist(user);
-        //emf.close();
+    public void persistUser(Users users) throws NamingException{
+        em.persist(users);
+    }
+    public void updateUser(Users u){
+        em.merge(u);
     }
 
     public void persistDevice(Device device) throws NamingException, JMSException{
@@ -40,6 +42,9 @@ public class Dao {
 
     public void persistSubscription(Subscription subscription) throws NamingException, JMSException{
         em.persist(subscription);
+    }
+    public void persistFeedback(Feedback f) throws NamingException, JMSException{
+        em.persist(f);
     }
 
 	public List<Device> getAllDevices() {

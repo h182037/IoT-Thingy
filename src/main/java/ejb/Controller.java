@@ -1,8 +1,6 @@
 package ejb;
 
-import entities.Device;
-import entities.Subscription;
-import entities.Users;
+import entities.*;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -33,7 +31,10 @@ public class Controller implements Serializable {
 	@EJB
 	private Dao dao;
 
+	private Users users;
 	private Device device;
+	private Feedback feedback;
+	private Subscription sub;
 
     private String returnMessage ="Wake up!";
 
@@ -53,27 +54,39 @@ public class Controller implements Serializable {
     public void storeSubscription(Subscription s) throws JMSException, NamingException {
 	    dao.persistSubscription(s);
     }
-
-    public String getReturnMessage() {
-        return returnMessage;
+    public void storeFeedback(Feedback f) throws JMSException, NamingException {
+        dao.persistFeedback(f);
     }
 
-    public void wakeUp() throws JMSException, NamingException {
+    public void wakeUpUser() throws JMSException, NamingException {
+        users = new Users();
+        users.setUsername("IoTFan123");
+        users.setPassword("0x0deadbeef");
 
-        Device device = new Device();
+        device = new Device();
         device.setName("regn");
         device.setUrl("www.here.com");
+        device.setUsers(users);
         device.setOnline(false);
         device.setAvailable(false);
-        storeDevice(device);
+        device.setTags("nedbor, vatn, klima");
 
+        sub = new Subscription();
+        sub.setSubscribed(device);
+        sub.setSubscriber(users);
+        sub.setVerified(false);
+
+        feedback = new Feedback();
+        feedback.setAuthor(users);
+        feedback.setTarget(device);
+        feedback.setText("This rain is ruining my weekend");
+
+
+        device.addFeedback(feedback);
+        device.addSubscription(sub);
+        users.addSubscribed(sub);
+        users.addOwned(device);
+        storeUser(users);
     }
-	public Device getDevice() {
-		if (this.device == null) {
-			device = new Device();
-		}
-		return device;
-
-	}
 
 }

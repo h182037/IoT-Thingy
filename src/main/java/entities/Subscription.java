@@ -1,6 +1,5 @@
 package entities;
 
-import javax.inject.Named;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
@@ -9,10 +8,7 @@ import java.io.Serializable;
 @Entity
 @XmlRootElement
 @Table(name="subscription")
-@NamedQueries({
-        @NamedQuery(name = "Subscription.findAll", query = "SELECT s FROM Subscription s"),
-        @NamedQuery(name = "Subscription.findAllVerified", query = "SELECT s FROM Subscription s WHERE s.verified=true and s.id = :deviceId")
-})
+@NamedQuery(name="Subscription.findAll", query="SELECT s FROM Subscription s")
 public class Subscription implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -24,26 +20,36 @@ public class Subscription implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.TABLE,generator="yourTableGenerator")
     private Long id;
-/*
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "user_id")
-    private User user;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "device_id")
-    private Device device;
-*/
+    @ManyToOne
+    @JoinColumn(name="subscriber")
+    private Users subscriber;
+
+    @ManyToOne
+    @JoinColumn(name="device")
+    private Device subscribed;
+
     private boolean verified;
 
-    public static final String FIND_ALL = "User.findAll";
+    public static final String FIND_ALL = "Users.findAll";
 
     public Subscription() {
     }
 
-    public Subscription(Users user, Device device, boolean verified) {
-     //   this.user = user;
-     //   this.device = device;
-        this.verified = verified;
+    public Users getSubscriber() {
+        return subscriber;
+    }
+
+    public void setSubscriber(Users subscriber) {
+        this.subscriber = subscriber;
+    }
+
+    public Device getSubscribed() {
+        return subscribed;
+    }
+
+    public void setSubscribed(Device subscribed) {
+        this.subscribed = subscribed;
     }
 
     public static long getSerialVersionUID() {
@@ -57,23 +63,7 @@ public class Subscription implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
-/*
-    public User getUser() {
-        return user;
-    }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public Device getDevice() {
-        return device;
-    }
-
-    public void setDevice(Device device) {
-        this.device = device;
-    }
-*/
     public boolean isVerified() {
         return verified;
     }
