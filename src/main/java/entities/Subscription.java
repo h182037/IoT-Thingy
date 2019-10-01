@@ -1,7 +1,6 @@
 package entities;
 
-import org.eclipse.persistence.jpa.config.Cascade;
-
+import javax.inject.Named;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
@@ -10,7 +9,10 @@ import java.io.Serializable;
 @Entity
 @XmlRootElement
 @Table(name="subscription")
-@NamedQuery(name="Subscription.findAll", query="SELECT s FROM Subscription s")
+@NamedQueries({
+        @NamedQuery(name = "Subscription.findAll", query = "SELECT s FROM Subscription s"),
+        @NamedQuery(name = "Subscription.findAllVerified", query = "SELECT s FROM Subscription s WHERE s.verified=true and s.id = :deviceId")
+})
 public class Subscription implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -38,7 +40,7 @@ public class Subscription implements Serializable {
     public Subscription() {
     }
 
-    public Subscription(User user, Device device, boolean verified) {
+    public Subscription(Users user, Device device, boolean verified) {
      //   this.user = user;
      //   this.device = device;
         this.verified = verified;

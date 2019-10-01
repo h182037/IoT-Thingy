@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
+Built-By: ommid
 Created-By: IntelliJ IDEA
-Built-By: Sindre
 Build-Jdk: 1.8.0_221
 

@@ -2,21 +2,12 @@ package ejb;
 
 import entities.Device;
 import entities.Subscription;
-import entities.User;
+import entities.Users;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.Resource;
 import javax.ejb.Stateless;
-import javax.enterprise.context.SessionScoped;
-import javax.inject.Inject;
-import javax.inject.Named;
-import javax.jms.JMSConnectionFactory;
-import javax.jms.JMSContext;
 import javax.jms.JMSException;
-import javax.jms.JMSSessionMode;
-import javax.jms.Topic;
 import javax.naming.NamingException;
 import javax.persistence.*;
 
@@ -36,7 +27,7 @@ public class Dao {
     private EntityManager em;
 
     // Stores a new tweet:
-    public void persistUser(User user) throws NamingException{
+    public void persistUser(Users user) throws NamingException{
         //EntityManagerFactory emf = Persistence.createEntityManagerFactory("Dat250TweetAdvanced");
         //em = emf.createEntityManager();
         em.persist(user);

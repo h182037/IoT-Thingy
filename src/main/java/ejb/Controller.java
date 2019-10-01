@@ -1,9 +1,8 @@
 package ejb;
 
 import entities.Device;
-import entities.Feedback;
 import entities.Subscription;
-import entities.User;
+import entities.Users;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -45,7 +44,7 @@ public class Controller implements Serializable {
 		return reverseDeviceList;
 	}
 
-	public void storeUser(User u) throws NamingException {
+	public void storeUser(Users u) throws NamingException {
 	    dao.persistUser(u);
     }
     public void storeDevice(Device d) throws JMSException, NamingException {

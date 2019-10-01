@@ -1,18 +1,10 @@
 package ejb;
 
-import entities.Device;
-import entities.Subscription;
-import entities.User;
-
 import java.io.IOException;
 import java.io.Serializable;
-import java.util.List;
 
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
-import javax.jms.JMSException;
-import javax.jms.Session;
-import javax.naming.NamingException;
 import javax.servlet.http.HttpSession;
 
 /**
