@@ -1,11 +1,5 @@
 ejb\Constants.class
 ejb\SessionUtils.class
-ejb\Controller.class
 entities\Feedback.class
-main.class
-ejb\Dao.class
-entities\Subscription.class
-entities\User.class
 entities\Tag.class
-entities\Device.class
 ejb\SessionController.class

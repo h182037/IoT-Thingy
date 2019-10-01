@@ -3,14 +3,11 @@ package entities;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-
 
 @Entity
 @XmlRootElement
-@Table(name="user")
-@NamedQuery(name="User.findAll", query="SELECT u FROM User u")
+@Table(name="users")
+@NamedQuery(name="Users.findAll", query="SELECT u FROM User u")
 public class User implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -23,9 +20,26 @@ public class User implements Serializable {
     @GeneratedValue(strategy=GenerationType.TABLE,generator="yourTableGenerator")
     private Long id;
 
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     private String username;
 
     private String password;
+
+    public static final String FIND_ALL = "Users.findAll";
+
+    public User(){
+    }
 /*
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     private List<Device> ownedDevices;
@@ -36,13 +50,6 @@ public class User implements Serializable {
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     private List<Feedback> feedback;
 */
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getUsername() {
         return username;
@@ -84,10 +91,7 @@ public class User implements Serializable {
         this.feedback.add(f);
     }
 */
-    public static final String FIND_ALL = "User.findAll";
 
-    public User() {
-    }
 /*
     public void setOwnedDevices(List<Device> ownedDevices) {
         this.ownedDevices = ownedDevices;
@@ -101,13 +105,5 @@ public class User implements Serializable {
         this.feedback = feedback;
     }
 */
-    public User(String username, String password) {
-        this.username = username;
-        this.password = password;
-       /* this.ownedDevices = new ArrayList<Device>();
-        this.feedback = new ArrayList<Feedback>();
-        this.subscriptions = new ArrayList<Subscription>();
 
-        */
-    }
 }

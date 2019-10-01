@@ -3,7 +3,6 @@ package entities;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
-import java.util.List;
 
 @Entity
 @XmlRootElement
@@ -19,7 +18,7 @@ public class Device implements Serializable {
             initialValue = 1)
     @Id
     @GeneratedValue(strategy=GenerationType.TABLE,generator="yourTableGenerator")
-    private int id;
+    private Long id;
 
     private String name;
 
@@ -44,23 +43,17 @@ public class Device implements Serializable {
     public Device() {
     }
 
-    public Device(String name, String url, User owner, boolean online, boolean available) {
-        this.name = name;
-        this.url = url;
-     //   this.owner = owner;
-        this.online = online;
-        this.available = available;
-    }
+
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

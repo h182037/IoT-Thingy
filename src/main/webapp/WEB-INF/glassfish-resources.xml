@@ -24,7 +24,7 @@
         <property name="portNumber" value="5433" />
         <property name="databaseName" value="db2019_g02" />
         <property name="User" value="g2019_02" />
-        <property name="Password" value="provided by the instructor" />
+        <property name="Password" value="Gb35uV" />
         <property name="URL"  value="jdbc:postgresql://data2.hib.no:5433/db2019_g02" />
         <property name="driverClass" value="org.postgresql.Driver" />
     </jdbc-connection-pool>

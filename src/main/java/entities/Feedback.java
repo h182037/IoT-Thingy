@@ -20,19 +20,6 @@ public class Feedback implements Serializable {
     @GeneratedValue(strategy=GenerationType.TABLE,generator="yourTableGenerator")
     private Long id;
 
-    private String text;
-
-    private String author;
-/*
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "device_id")
-    private Device device;
-*/
-    public static final String FIND_ALL = "User.findAll";
-
-    public Feedback() {
-    }
-
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }
@@ -44,6 +31,23 @@ public class Feedback implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+    private String text;
+
+    private String author;
+
+    public static final String FIND_ALL = "User.findAll";
+
+    public Feedback() {
+    }
+
+    /*
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "device_id")
+    private Device device;
+*/
+
+
+
 
     public String getText() {
         return text;

@@ -18,9 +18,7 @@ import javax.jms.JMSException;
 import javax.jms.JMSSessionMode;
 import javax.jms.Topic;
 import javax.naming.NamingException;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
+import javax.persistence.*;
 
 /**
  * 
@@ -39,7 +37,10 @@ public class Dao {
 
     // Stores a new tweet:
     public void persistUser(User user) throws NamingException{
+        //EntityManagerFactory emf = Persistence.createEntityManagerFactory("Dat250TweetAdvanced");
+        //em = emf.createEntityManager();
         em.persist(user);
+        //emf.close();
     }
 
     public void persistDevice(Device device) throws NamingException, JMSException{
