@@ -62,6 +62,7 @@ public class Controller implements Serializable {
         users = new Users();
         users.setUsername("IoTFan123");
         users.setPassword("0x0deadbeef");
+
         device = new Device();
         device.setName("regn");
         device.setUrl("www.here.com");
@@ -69,38 +70,23 @@ public class Controller implements Serializable {
         device.setOnline(false);
         device.setAvailable(false);
         device.setTags("nedbor, vatn, klima");
+
+        sub = new Subscription();
+        sub.setSubscribed(device);
+        sub.setSubscriber(users);
+        sub.setVerified(false);
+
+        feedback = new Feedback();
+        feedback.setAuthor(users);
+        feedback.setTarget(device);
+        feedback.setText("This rain is ruining my weekend");
+
+
+        device.addFeedback(feedback);
+        device.addSubscription(sub);
+        users.addSubscribed(sub);
         users.addOwned(device);
         storeUser(users);
     }
-    public void wakeUpDevice() throws JMSException, NamingException {
-        device = new Device();
-        device.setName("regn");
-        device.setUrl("www.here.com");
-        device.setUsers(users);
-        device.setOnline(false);
-        device.setAvailable(false);
-        device.setTags("nedbor, vatn, klima");
-        users.addOwned(device);
-        dao.updateUser(users);
-    }
-
-    public void wakeUpSubscription() throws JMSException, NamingException {
-        sub = new Subscription();
-        sub.setSubscribed(device);
-        sub.setVerified(false);
-        device.addSubscription(sub);
-        users.addSubscribed(sub);
-        storeSubscription(sub);
-    }
-    public void wakeUpFeedback() throws JMSException, NamingException {
-	    feedback = new Feedback();
-	    feedback.setAuthor(users);
-	    feedback.setTarget(device);
-	    feedback.setText("This rain is ruining my weekend");
-	    device.addFeedback(feedback);
-        storeFeedback(feedback);
-    }
-
-
 
 }
