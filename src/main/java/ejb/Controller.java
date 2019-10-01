@@ -12,7 +12,6 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 import javax.jms.JMSException;
 import javax.naming.NamingException;
-
 /**
  * 
  * @author Alejandro Rodriguez
@@ -20,7 +19,6 @@ import javax.naming.NamingException;
  *
  *   Tweet Controller class for the management of tweets
  */
-
 @Named(value = "controller")
 @RequestScoped
 public class Controller implements Serializable {
@@ -36,7 +34,6 @@ public class Controller implements Serializable {
 	private Feedback feedback;
 	private Subscription sub;
 
-    private String returnMessage ="Wake up!";
 
 	public List<Device> getDevices() {
 		List<Device> reverseDeviceList = new ArrayList<Device>();
@@ -48,15 +45,7 @@ public class Controller implements Serializable {
 	public void storeUser(Users u) throws NamingException {
 	    dao.persistUser(u);
     }
-    public void storeDevice(Device d) throws JMSException, NamingException {
-	    dao.persistDevice(d);
-    }
-    public void storeSubscription(Subscription s) throws JMSException, NamingException {
-	    dao.persistSubscription(s);
-    }
-    public void storeFeedback(Feedback f) throws JMSException, NamingException {
-        dao.persistFeedback(f);
-    }
+
 
     public void wakeUpUser() throws JMSException, NamingException {
         users = new Users();
