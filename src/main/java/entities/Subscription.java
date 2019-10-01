@@ -1,7 +1,5 @@
 package entities;
 
-import org.eclipse.persistence.jpa.config.Cascade;
-
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
@@ -22,26 +20,36 @@ public class Subscription implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.TABLE,generator="yourTableGenerator")
     private Long id;
-/*
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "user_id")
-    private User user;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "device_id")
-    private Device device;
-*/
+    @ManyToOne
+    @JoinColumn(name="subscriber")
+    private Users subscriber;
+
+    @ManyToOne
+    @JoinColumn(name="device")
+    private Device subscribed;
+
     private boolean verified;
 
-    public static final String FIND_ALL = "User.findAll";
+    public static final String FIND_ALL = "Users.findAll";
 
     public Subscription() {
     }
 
-    public Subscription(User user, Device device, boolean verified) {
-     //   this.user = user;
-     //   this.device = device;
-        this.verified = verified;
+    public Users getSubscriber() {
+        return subscriber;
+    }
+
+    public void setSubscriber(Users subscriber) {
+        this.subscriber = subscriber;
+    }
+
+    public Device getSubscribed() {
+        return subscribed;
+    }
+
+    public void setSubscribed(Device subscribed) {
+        this.subscribed = subscribed;
     }
 
     public static long getSerialVersionUID() {
@@ -55,23 +63,7 @@ public class Subscription implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
-/*
-    public User getUser() {
-        return user;
-    }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public Device getDevice() {
-        return device;
-    }
-
-    public void setDevice(Device device) {
-        this.device = device;
-    }
-*/
     public boolean isVerified() {
         return verified;
     }

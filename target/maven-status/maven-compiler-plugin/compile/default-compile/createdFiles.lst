@@ -1,5 +1,5 @@
 ejb\Constants.class
 ejb\SessionUtils.class
+entities\Users.class
 entities\Feedback.class
-entities\Tag.class
 ejb\SessionController.class

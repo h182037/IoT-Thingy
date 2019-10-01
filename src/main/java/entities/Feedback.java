@@ -20,8 +20,35 @@ public class Feedback implements Serializable {
     @GeneratedValue(strategy=GenerationType.TABLE,generator="yourTableGenerator")
     private Long id;
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
+    private String text;
+
+    @ManyToOne
+    @JoinColumn(name="users")
+    private Users author;
+
+    @ManyToOne
+    @JoinColumn(name="device")
+    private Device target;
+
+    public static final String FIND_ALL = "Users.findAll";
+
+    public Feedback() {
+    }
+
+    public Users getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Users author) {
+        this.author = author;
+    }
+
+    public Device getTarget() {
+        return target;
+    }
+
+    public void setTarget(Device target) {
+        this.target = target;
     }
 
     public Long getId() {
@@ -31,24 +58,6 @@ public class Feedback implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
-    private String text;
-
-    private String author;
-
-    public static final String FIND_ALL = "User.findAll";
-
-    public Feedback() {
-    }
-
-    /*
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "device_id")
-    private Device device;
-*/
-
-
-
-
     public String getText() {
         return text;
     }
@@ -57,21 +66,4 @@ public class Feedback implements Serializable {
         this.text = text;
     }
 
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-/*
-    public Device getDevice() {
-        return device;
-    }
-
-    public void setDevice(Device device) {
-        this.device = device;
-    }
-
- */
 }
