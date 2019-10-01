@@ -26,16 +26,16 @@ public class User implements Serializable {
     private String username;
 
     private String password;
-
-    @OneToMany
+/*
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     private List<Device> ownedDevices;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     private List<Subscription> subscriptions;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     private List<Feedback> feedback;
-
+*/
     public Long getId() {
         return id;
     }
@@ -59,7 +59,7 @@ public class User implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
-
+/*
     public List<Device> getOwnedDevices() {
         return ownedDevices;
     }
@@ -83,17 +83,31 @@ public class User implements Serializable {
     public void addFeedback(Feedback f) {
         this.feedback.add(f);
     }
-
+*/
     public static final String FIND_ALL = "User.findAll";
 
     public User() {
     }
+/*
+    public void setOwnedDevices(List<Device> ownedDevices) {
+        this.ownedDevices = ownedDevices;
+    }
 
+    public void setSubscriptions(List<Subscription> subscriptions) {
+        this.subscriptions = subscriptions;
+    }
+
+    public void setFeedback(List<Feedback> feedback) {
+        this.feedback = feedback;
+    }
+*/
     public User(String username, String password) {
         this.username = username;
         this.password = password;
-        this.ownedDevices = new ArrayList<Device>();
+       /* this.ownedDevices = new ArrayList<Device>();
         this.feedback = new ArrayList<Feedback>();
         this.subscriptions = new ArrayList<Subscription>();
+
+        */
     }
 }

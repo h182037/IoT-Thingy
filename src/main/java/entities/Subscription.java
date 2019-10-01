@@ -1,5 +1,7 @@
 package entities;
 
+import org.eclipse.persistence.jpa.config.Cascade;
+
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
@@ -20,15 +22,15 @@ public class Subscription implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.TABLE,generator="yourTableGenerator")
     private Long id;
-
-    @ManyToOne(fetch = FetchType.LAZY)
+/*
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "user_id")
     private User user;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "device_id")
     private Device device;
-
+*/
     private boolean verified;
 
     public static final String FIND_ALL = "User.findAll";
@@ -37,8 +39,8 @@ public class Subscription implements Serializable {
     }
 
     public Subscription(User user, Device device, boolean verified) {
-        this.user = user;
-        this.device = device;
+     //   this.user = user;
+     //   this.device = device;
         this.verified = verified;
     }
 
@@ -53,7 +55,7 @@ public class Subscription implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
-
+/*
     public User getUser() {
         return user;
     }
@@ -69,7 +71,7 @@ public class Subscription implements Serializable {
     public void setDevice(Device device) {
         this.device = device;
     }
-
+*/
     public boolean isVerified() {
         return verified;
     }

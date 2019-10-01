@@ -23,11 +23,11 @@ public class Feedback implements Serializable {
     private String text;
 
     private String author;
-
-    @ManyToOne(fetch = FetchType.LAZY)
+/*
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "device_id")
     private Device device;
-
+*/
     public static final String FIND_ALL = "User.findAll";
 
     public Feedback() {
@@ -60,7 +60,7 @@ public class Feedback implements Serializable {
     public void setAuthor(String author) {
         this.author = author;
     }
-
+/*
     public Device getDevice() {
         return device;
     }
@@ -68,4 +68,6 @@ public class Feedback implements Serializable {
     public void setDevice(Device device) {
         this.device = device;
     }
+
+ */
 }

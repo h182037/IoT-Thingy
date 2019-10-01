@@ -29,8 +29,6 @@ public class SessionController implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private Controller controller;
-
 	private String password;
 
 	private String username;
@@ -50,8 +48,6 @@ public class SessionController implements Serializable {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-
-
 
 	public String validateUsernamePassword() {
 		HttpSession session = SessionUtils.getSession();

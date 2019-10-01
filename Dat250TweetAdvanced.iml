@@ -18,6 +18,7 @@
     <facet type="jpa" name="JPA">
       <configuration>
         <setting name="validation-enabled" value="true" />
+        <setting name="provider-name" value="EclipseLink" />
         <datasource-mapping>
           <factory-entry name="Dat250TweetAdvanced" value="071eb9f8-8632-4794-b1fc-e9d7c4f48b2a" />
         </datasource-mapping>

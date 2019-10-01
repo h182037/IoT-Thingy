@@ -24,17 +24,17 @@ public class Device implements Serializable {
     private String name;
 
     private String url;
-
-    @OneToMany
+/*
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     private List<Tag> tags;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     private List<Feedback> feedback;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "user_id")
     private User owner;
-
+*/
     private boolean online;
 
     private boolean available;
@@ -47,7 +47,7 @@ public class Device implements Serializable {
     public Device(String name, String url, User owner, boolean online, boolean available) {
         this.name = name;
         this.url = url;
-        this.owner = owner;
+     //   this.owner = owner;
         this.online = online;
         this.available = available;
     }
@@ -79,7 +79,7 @@ public class Device implements Serializable {
     public void setUrl(String url) {
         this.url = url;
     }
-
+/*
     public List<Tag> getTags() {
         return tags;
     }
@@ -103,7 +103,7 @@ public class Device implements Serializable {
     public void setOwner(User owner) {
         this.owner = owner;
     }
-
+*/
     public boolean isOnline() {
         return online;
     }
