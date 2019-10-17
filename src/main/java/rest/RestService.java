@@ -23,11 +23,9 @@ public class RestService {
 
     @GET
     public Response getDevices(){
-
         TypedQuery<Device> query =
                 em.createNamedQuery("Device.findAll", Device.class);
         List<Device> devices = query.getResultList();
-
         return Response.ok(devices).build();
     }
 
@@ -44,8 +42,8 @@ public class RestService {
             throw new NotFoundException();
         return Response.ok(device).build();
     }
-
-    @GET
+/*
+    @POST
     @Path("/{id}/registrations")
     public Response getDeviceRegistrations(@PathParam("id") String id){
         long idInt = 0;
@@ -64,7 +62,7 @@ public class RestService {
 
         return Response.ok(registrations).build();
     }
-
+*/
     @GET
     @Path("/{id}/registrations/{rid}")
     public Response getDeviceRID(@PathParam("id") String id, @PathParam("rid") String rid){

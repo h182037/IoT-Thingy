@@ -11,7 +11,6 @@ import java.io.Serializable;
 public class Feedback implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    //Create elements ids automatically, incremented 1 by 1
     @TableGenerator(
             name = "yourTableGenerator",
             allocationSize = 1,

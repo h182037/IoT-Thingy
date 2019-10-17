@@ -5,14 +5,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- * 
- * @author Alejandro Rodriguez
- * Dat250 course
- *
- *Management of session methods
- */
-
 public class SessionUtils {
 
 

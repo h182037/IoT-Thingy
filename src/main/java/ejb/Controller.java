@@ -12,20 +12,13 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 import javax.jms.JMSException;
 import javax.naming.NamingException;
-/**
- * 
- * @author Alejandro Rodriguez
- * Dat250 course
- *
- *   Tweet Controller class for the management of tweets
- */
+
 @Named(value = "controller")
 @RequestScoped
 public class Controller implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	// Injected DAO EJB:
 	@EJB
 	private Dao dao;
 
