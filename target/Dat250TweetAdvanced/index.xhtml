@@ -14,6 +14,16 @@
 	<h:form>
 		<h:commandLink action="#{controller.wakeUpUser()}" value="Wake up database."></h:commandLink>
 	</h:form>
+    <h:form>
+        <h3>Devices</h3>
+        <h:selectOneListbox id="list" size="10"
+                            value="#{devicebean.text}"
+                            valueChangeListener="#{devicebean.valueChanged}"
+                            onchange="submit()">
+            <f:selectItems value="#{devicebean.data}"/>
+        </h:selectOneListbox>
+        <h:outputText id="msg" value="#{devicebean.message}"/>
+    </h:form>
 </div>
 </h:body>
 </html>

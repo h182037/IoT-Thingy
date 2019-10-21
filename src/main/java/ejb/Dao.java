@@ -25,6 +25,9 @@ public class Dao {
     public void persistUser(Users users) throws NamingException{
         em.persist(users);
     }
+
+    public Dao(){
+    }
     public void updateUser(Users u){
         em.merge(u);
     }
@@ -41,7 +44,7 @@ public class Dao {
     }
 
 	public List<Device> getAllDevices() {
-        Query query = em.createQuery("SELECT d FROM Device d");
+        Query query = em.createQuery("SELECT d FROM Device d", Device.class);
         List<Device> devices;
         devices = query.getResultList();
         return devices;

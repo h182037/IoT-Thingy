@@ -282,7 +282,7 @@
     <database id="57" parent="1" name="db2019_g02">
       <ObjectId>930358</ObjectId>
       <Owner>g2019_02</Owner>
-      <IntrospectionStateNumber>449433</IntrospectionStateNumber>
+      <IntrospectionStateNumber>457350</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </database>
@@ -2109,7 +2109,7 @@
       <Comment>standard public schema</Comment>
       <StateNumber>2</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>449434</IntrospectionStateNumber>
+      <IntrospectionStateNumber>457351</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -2714,92 +2714,92 @@
       <Substituted>1</Substituted>
     </schema>
     <table id="565" parent="396" name="device">
-      <ObjectId>942322</ObjectId>
+      <ObjectId>957895</ObjectId>
       <Owner>g2019_02</Owner>
-      <StateNumber>449425</StateNumber>
+      <StateNumber>457347</StateNumber>
     </table>
     <table id="566" parent="396" name="feedback">
-      <ObjectId>942335</ObjectId>
+      <ObjectId>957908</ObjectId>
       <Owner>g2019_02</Owner>
-      <StateNumber>449426</StateNumber>
+      <StateNumber>457347</StateNumber>
     </table>
     <table id="567" parent="396" name="sequence">
-      <ObjectId>942373</ObjectId>
+      <ObjectId>957941</ObjectId>
       <Owner>g2019_02</Owner>
-      <StateNumber>449427</StateNumber>
+      <StateNumber>457348</StateNumber>
     </table>
     <table id="568" parent="396" name="subscription">
-      <ObjectId>942330</ObjectId>
+      <ObjectId>957903</ObjectId>
       <Owner>g2019_02</Owner>
-      <StateNumber>449424</StateNumber>
+      <StateNumber>457346</StateNumber>
     </table>
     <table id="569" parent="396" name="users">
-      <ObjectId>942340</ObjectId>
+      <ObjectId>957913</ObjectId>
       <Owner>g2019_02</Owner>
-      <StateNumber>449426</StateNumber>
+      <StateNumber>457346</StateNumber>
     </table>
     <column id="570" parent="565" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>449418</StateNumber>
+      <StateNumber>457340</StateNumber>
       <TypeId>20</TypeId>
     </column>
     <column id="571" parent="565" name="available">
       <Position>2</Position>
       <DataType>boolean|0s</DataType>
-      <StateNumber>449418</StateNumber>
+      <StateNumber>457340</StateNumber>
       <TypeId>16</TypeId>
     </column>
     <column id="572" parent="565" name="name">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>449418</StateNumber>
+      <StateNumber>457340</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="573" parent="565" name="online">
       <Position>4</Position>
       <DataType>boolean|0s</DataType>
-      <StateNumber>449418</StateNumber>
+      <StateNumber>457340</StateNumber>
       <TypeId>16</TypeId>
     </column>
     <column id="574" parent="565" name="tags">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>449418</StateNumber>
+      <StateNumber>457340</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="575" parent="565" name="url">
       <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>449418</StateNumber>
+      <StateNumber>457340</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="576" parent="565" name="owner">
+    <column id="576" parent="565" name="device_id">
       <Position>7</Position>
       <DataType>bigint|0s</DataType>
-      <StateNumber>449418</StateNumber>
+      <StateNumber>457340</StateNumber>
       <TypeId>20</TypeId>
     </column>
     <index id="577" parent="565" name="device_pkey">
-      <ObjectId>942328</ObjectId>
-      <StateNumber>449418</StateNumber>
+      <ObjectId>957901</ObjectId>
+      <StateNumber>457340</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
     <key id="578" parent="565" name="device_pkey">
-      <ObjectId>942329</ObjectId>
-      <StateNumber>449418</StateNumber>
+      <ObjectId>957902</ObjectId>
+      <StateNumber>457340</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>device_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="579" parent="565" name="fk_device_owner">
-      <ObjectId>942348</ObjectId>
-      <StateNumber>449422</StateNumber>
-      <ColNames>owner</ColNames>
-      <RefTableId>942340</RefTableId>
+    <foreign-key id="579" parent="565" name="fk_device_device_id">
+      <ObjectId>957921</ObjectId>
+      <StateNumber>457344</StateNumber>
+      <ColNames>device_id</ColNames>
+      <RefTableId>957913</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>users</RefTableName>
       <RefKeyName>users_pkey</RefKeyName>
@@ -2809,176 +2809,160 @@
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>449420</StateNumber>
+      <StateNumber>457342</StateNumber>
       <TypeId>20</TypeId>
     </column>
     <column id="581" parent="566" name="text">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>449420</StateNumber>
+      <StateNumber>457342</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="582" parent="566" name="users">
+    <column id="582" parent="566" name="feedback_id">
       <Position>3</Position>
       <DataType>bigint|0s</DataType>
-      <StateNumber>449420</StateNumber>
+      <StateNumber>457342</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="583" parent="566" name="device">
-      <Position>4</Position>
-      <DataType>bigint|0s</DataType>
-      <StateNumber>449420</StateNumber>
-      <TypeId>20</TypeId>
-    </column>
-    <index id="584" parent="566" name="feedback_pkey">
-      <ObjectId>942338</ObjectId>
-      <StateNumber>449420</StateNumber>
+    <index id="583" parent="566" name="feedback_pkey">
+      <ObjectId>957911</ObjectId>
+      <StateNumber>457342</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="585" parent="566" name="feedback_pkey">
-      <ObjectId>942339</ObjectId>
-      <StateNumber>449420</StateNumber>
+    <key id="584" parent="566" name="feedback_pkey">
+      <ObjectId>957912</ObjectId>
+      <StateNumber>457342</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>feedback_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="586" parent="566" name="fk_feedback_users">
-      <ObjectId>942368</ObjectId>
-      <StateNumber>449426</StateNumber>
-      <ColNames>users</ColNames>
-      <RefTableId>942340</RefTableId>
-      <RefColPositions>1</RefColPositions>
-      <RefTableName>users</RefTableName>
-      <RefKeyName>users_pkey</RefKeyName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
-    <foreign-key id="587" parent="566" name="fk_feedback_device">
-      <ObjectId>942363</ObjectId>
-      <StateNumber>449425</StateNumber>
-      <ColNames>device</ColNames>
-      <RefTableId>942322</RefTableId>
+    <foreign-key id="585" parent="566" name="fk_feedback_feedback_id">
+      <ObjectId>957936</ObjectId>
+      <StateNumber>457347</StateNumber>
+      <ColNames>feedback_id</ColNames>
+      <RefTableId>957895</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>device</RefTableName>
       <RefKeyName>device_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="588" parent="567" name="seq_name">
+    <column id="586" parent="567" name="seq_name">
       <Position>1</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>449427</StateNumber>
+      <StateNumber>457348</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="589" parent="567" name="seq_count">
+    <column id="587" parent="567" name="seq_count">
       <Position>2</Position>
       <DataType>numeric(38)|0s</DataType>
-      <StateNumber>449427</StateNumber>
+      <StateNumber>457348</StateNumber>
       <TypeId>1700</TypeId>
     </column>
-    <index id="590" parent="567" name="sequence_pkey">
-      <ObjectId>942376</ObjectId>
-      <StateNumber>449427</StateNumber>
+    <index id="588" parent="567" name="sequence_pkey">
+      <ObjectId>957944</ObjectId>
+      <StateNumber>457348</StateNumber>
       <ColNames>seq_name</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="591" parent="567" name="sequence_pkey">
-      <ObjectId>942377</ObjectId>
-      <StateNumber>449427</StateNumber>
+    <key id="589" parent="567" name="sequence_pkey">
+      <ObjectId>957945</ObjectId>
+      <StateNumber>457348</StateNumber>
       <ColNames>seq_name</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>sequence_pkey</UnderlyingIndexName>
     </key>
-    <column id="592" parent="568" name="id">
+    <column id="590" parent="568" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>449419</StateNumber>
+      <StateNumber>457341</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="593" parent="568" name="verified">
+    <column id="591" parent="568" name="verified">
       <Position>2</Position>
       <DataType>boolean|0s</DataType>
-      <StateNumber>449419</StateNumber>
+      <StateNumber>457341</StateNumber>
       <TypeId>16</TypeId>
     </column>
-    <column id="594" parent="568" name="device">
+    <column id="592" parent="568" name="device_id">
       <Position>3</Position>
       <DataType>bigint|0s</DataType>
-      <StateNumber>449419</StateNumber>
+      <StateNumber>457341</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="595" parent="568" name="subscriber">
+    <column id="593" parent="568" name="users_id">
       <Position>4</Position>
       <DataType>bigint|0s</DataType>
-      <StateNumber>449419</StateNumber>
+      <StateNumber>457341</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <index id="596" parent="568" name="subscription_pkey">
-      <ObjectId>942333</ObjectId>
-      <StateNumber>449419</StateNumber>
+    <index id="594" parent="568" name="subscription_pkey">
+      <ObjectId>957906</ObjectId>
+      <StateNumber>457341</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="597" parent="568" name="subscription_pkey">
-      <ObjectId>942334</ObjectId>
-      <StateNumber>449419</StateNumber>
+    <key id="595" parent="568" name="subscription_pkey">
+      <ObjectId>957907</ObjectId>
+      <StateNumber>457341</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>subscription_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="598" parent="568" name="fk_subscription_device">
-      <ObjectId>942358</ObjectId>
-      <StateNumber>449424</StateNumber>
-      <ColNames>device</ColNames>
-      <RefTableId>942322</RefTableId>
+    <foreign-key id="596" parent="568" name="fk_subscription_device_id">
+      <ObjectId>957926</ObjectId>
+      <StateNumber>457345</StateNumber>
+      <ColNames>device_id</ColNames>
+      <RefTableId>957895</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>device</RefTableName>
       <RefKeyName>device_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="599" parent="568" name="fk_subscription_subscriber">
-      <ObjectId>942353</ObjectId>
-      <StateNumber>449423</StateNumber>
-      <ColNames>subscriber</ColNames>
-      <RefTableId>942340</RefTableId>
+    <foreign-key id="597" parent="568" name="fk_subscription_users_id">
+      <ObjectId>957931</ObjectId>
+      <StateNumber>457346</StateNumber>
+      <ColNames>users_id</ColNames>
+      <RefTableId>957913</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>users</RefTableName>
       <RefKeyName>users_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="600" parent="569" name="id">
+    <column id="598" parent="569" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>449421</StateNumber>
+      <StateNumber>457343</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="601" parent="569" name="password">
+    <column id="599" parent="569" name="password">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>449421</StateNumber>
+      <StateNumber>457343</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="602" parent="569" name="username">
+    <column id="600" parent="569" name="username">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>449421</StateNumber>
+      <StateNumber>457343</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="603" parent="569" name="users_pkey">
-      <ObjectId>942346</ObjectId>
-      <StateNumber>449421</StateNumber>
+    <index id="601" parent="569" name="users_pkey">
+      <ObjectId>957919</ObjectId>
+      <StateNumber>457343</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="604" parent="569" name="users_pkey">
-      <ObjectId>942347</ObjectId>
-      <StateNumber>449421</StateNumber>
+    <key id="602" parent="569" name="users_pkey">
+      <ObjectId>957920</ObjectId>
+      <StateNumber>457343</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>users_pkey</UnderlyingIndexName>

@@ -25,14 +25,11 @@ public class Device implements Serializable {
 
     private String url;
 
-    @ManyToOne
-    @JoinColumn(name="owner")
-    private Users users;
-
-    @OneToMany(mappedBy = "subscribed", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy="subscribed", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     private List<Subscription> subscriptionList;
 
-    @OneToMany(mappedBy = "target", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @JoinColumn(name="feedback_id")
     private List<Feedback> feedbackList;
 
     private String tags;
@@ -64,13 +61,6 @@ public class Device implements Serializable {
         this.feedbackList = feedbackList;
     }
 
-    public Users getUsers() {
-        return users;
-    }
-
-    public void setUsers(Users owner) {
-        this.users = owner;
-    }
 
     public List<Subscription> getSubscriptionList() {
         return subscriptionList;
@@ -155,4 +145,10 @@ public class Device implements Serializable {
     public void setAvailable(boolean available) {
         this.available = available;
     }
+
+    @Override
+    public String toString() {
+        return this.name;
+    }
+
 }

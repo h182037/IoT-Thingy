@@ -21,12 +21,10 @@ public class Feedback implements Serializable {
 
     private String text;
 
-    @ManyToOne
-    @JoinColumn(name="users")
+    @Transient
     private Users author;
 
-    @ManyToOne
-    @JoinColumn(name="device")
+    @Transient
     private Device target;
 
     public static final String FIND_ALL = "Users.findAll";

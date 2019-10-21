@@ -16,16 +16,17 @@ public class Subscription implements Serializable {
             name = "yourTableGenerator",
             allocationSize = 1,
             initialValue = 1)
+
     @Id
     @GeneratedValue(strategy=GenerationType.TABLE,generator="yourTableGenerator")
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name="subscriber")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="users_id")
     private Users subscriber;
 
-    @ManyToOne
-    @JoinColumn(name="device")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="device_id")
     private Device subscribed;
 
     private boolean verified;
