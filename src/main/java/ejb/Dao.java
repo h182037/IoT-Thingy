@@ -44,7 +44,7 @@ public class Dao {
     }
 
 	public List<Device> getAllDevices() {
-        Query query = em.createQuery("SELECT d FROM Device d");
+        Query query = em.createNamedQuery(Device.FIND_ALL);
         List<Device> devices;
         devices = query.getResultList();
         return devices;

@@ -8,7 +8,7 @@
     	<link rel="stylesheet" type="text/css" href="css/style.css">	</link>	
        <title>IoT-Thingy</title>
 </h:head>
-<h:body onload="#{sessionController.redirect()}">
+<h:body onload="#{sessionController.redirect()}#{devicebean.init()}">
     <h1>Greetings, friend!</h1>
 <div class="div-container">
 	<h:form>
@@ -19,7 +19,7 @@
         <h:selectOneListbox id="list" size="10"
                             value="#{devicebean.text}"
                             valueChangeListener="#{devicebean.valueChanged}"
-                           onchange="submit()">
+                            onchange="submit()">
             <f:selectItems value="#{devicebean.data}"/>
         </h:selectOneListbox>
         <h:outputText id="msg" value="#{devicebean.message}"/>

@@ -1,7 +1,9 @@
 package entities;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import java.io.Serializable;
 
 @Entity
@@ -21,12 +23,25 @@ public class Feedback implements Serializable {
 
     private String text;
 
+    @JsonbTransient
+    @XmlTransient
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Device target;
+
     private String author;
 
 
     public static final String FIND_ALL = "Users.findAll";
 
     public Feedback() {
+    }
+
+    public Device getTarget() {
+        return target;
+    }
+
+    public void setTarget(Device target) {
+        this.target = target;
     }
 
     public String getAuthor() {

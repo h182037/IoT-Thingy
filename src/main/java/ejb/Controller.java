@@ -43,24 +43,25 @@ public class Controller implements Serializable {
 
     public void wakeUpUser() throws JMSException, NamingException {
         users = new Users();
-        users.setUsername("IoTFan123");
-        users.setPassword("0x0deadbeef");
+        users.setUsername("Superbad");
+        users.setPassword("0x0deadbeefsman");
 
         device = new Device();
-        device.setName("regn");
-        device.setUrl("www.here.com");
-       // device.setUsers(users);
+        device.setName("varme");
+        device.setUrl("www.there.com");
+        device.setUser(users);
         device.setOnline(false);
         device.setAvailable(false);
-        device.setTags("nedbor, vatn, klima");
+        device.setTags("heitur deitur");
 
         sub = new Subscription();
         sub.setVerified(false);
-
+        sub.setSubscribed(device);
+        sub.setUser(users);
         feedback = new Feedback();
         feedback.setAuthor(users.getUsername());
-        feedback.setText("This rain is ruining my weekend");
-
+        feedback.setTarget(device);
+        feedback.setText("Very hot, much summer");
 
         device.addFeedback(feedback);
         device.addSubscription(sub);
