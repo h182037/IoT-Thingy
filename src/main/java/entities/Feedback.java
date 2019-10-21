@@ -21,32 +21,22 @@ public class Feedback implements Serializable {
 
     private String text;
 
-    @Transient
-    private Users author;
+    private String author;
 
-    @Transient
-    private Device target;
 
     public static final String FIND_ALL = "Users.findAll";
 
     public Feedback() {
     }
 
-    public Users getAuthor() {
+    public String getAuthor() {
         return author;
     }
 
-    public void setAuthor(Users author) {
+    public void setAuthor(String author) {
         this.author = author;
     }
 
-    public Device getTarget() {
-        return target;
-    }
-
-    public void setTarget(Device target) {
-        this.target = target;
-    }
 
     public Long getId() {
         return id;

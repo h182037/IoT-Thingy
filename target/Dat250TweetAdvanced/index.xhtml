@@ -19,7 +19,7 @@
         <h:selectOneListbox id="list" size="10"
                             value="#{devicebean.text}"
                             valueChangeListener="#{devicebean.valueChanged}"
-                            onchange="submit()">
+                           onchange="submit()">
             <f:selectItems value="#{devicebean.data}"/>
         </h:selectOneListbox>
         <h:outputText id="msg" value="#{devicebean.message}"/>

@@ -8,6 +8,7 @@ import javax.ejb.Stateless;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.event.ValueChangeEvent;
 import javax.inject.Named;
+import javax.persistence.PersistenceContext;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -18,6 +19,8 @@ import java.util.List;
 @SessionScoped
 public class DeviceBean implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     @EJB
     private Dao dao;
 
@@ -26,24 +29,18 @@ public class DeviceBean implements Serializable {
     private String message;
 
     public DeviceBean(){
-        dao = new Dao();
         data = new ArrayList<>();
-        Device d = new Device();
-        d.setTags("vann og sånt.");
-        d.setAvailable(false);
-        d.setOnline(false);
-        d.setUrl("aopspoamc");
-        d.setName("heppatittentei");
-        data.add(d);
-
-        Device d2 = new Device();
-        d2.setTags("heitur pottur");
-        d2.setAvailable(false);
-        d2.setOnline(false);
-        d2.setUrl("aopspoasdonvm");
-        d2.setName("The L33tles");
-        data.add(d2);
-
+        data.addAll(this.dao.getAllDevices());
+        if(data.isEmpty()){
+            Device d = new Device();
+            d.setTags("vann og sånt.");
+            d.setAvailable(false);
+            d.setOnline(false);
+            d.setUrl("aopspoamc");
+            d.setName("heppatittentei");
+            data.add(d);
+        }
+        Device d = data.get(0);
         setText(d.getName());
         setMessage(d.getName() + " selected.");
     }

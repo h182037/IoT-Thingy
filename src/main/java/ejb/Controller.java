@@ -55,13 +55,10 @@ public class Controller implements Serializable {
         device.setTags("nedbor, vatn, klima");
 
         sub = new Subscription();
-        sub.setSubscribed(device);
-        sub.setSubscriber(users);
         sub.setVerified(false);
 
         feedback = new Feedback();
-        feedback.setAuthor(users);
-        feedback.setTarget(device);
+        feedback.setAuthor(users.getUsername());
         feedback.setText("This rain is ruining my weekend");
 
 

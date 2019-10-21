@@ -25,11 +25,12 @@ public class Device implements Serializable {
 
     private String url;
 
-    @OneToMany(mappedBy="subscribed", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @JoinColumn(name="subscription_id")
     private List<Subscription> subscriptionList;
 
     @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
-    @JoinColumn(name="feedback_id")
+    @JoinColumn(name = "feedback_id")
     private List<Feedback> feedbackList;
 
     private String tags;

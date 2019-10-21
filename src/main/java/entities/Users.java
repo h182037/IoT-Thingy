@@ -25,7 +25,8 @@ public class Users implements Serializable {
     @JoinColumn(name="device_id")
     private List<Device> ownedDevices;
 
-    @OneToMany(mappedBy = "subscriber", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @JoinColumn(name="subscription_id")
     private List<Subscription> subscriptionList;
 
     private String username;

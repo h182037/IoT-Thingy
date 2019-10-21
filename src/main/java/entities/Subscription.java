@@ -21,35 +21,11 @@ public class Subscription implements Serializable {
     @GeneratedValue(strategy=GenerationType.TABLE,generator="yourTableGenerator")
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="users_id")
-    private Users subscriber;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="device_id")
-    private Device subscribed;
-
     private boolean verified;
 
     public static final String FIND_ALL = "Users.findAll";
 
     public Subscription() {
-    }
-
-    public Users getSubscriber() {
-        return subscriber;
-    }
-
-    public void setSubscriber(Users subscriber) {
-        this.subscriber = subscriber;
-    }
-
-    public Device getSubscribed() {
-        return subscribed;
-    }
-
-    public void setSubscribed(Device subscribed) {
-        this.subscribed = subscribed;
     }
 
     public static long getSerialVersionUID() {
