@@ -1,5 +1,10 @@
 Manifest-Version: 1.0
 Created-By: IntelliJ IDEA
+<<<<<<< HEAD
 Built-By: Atle
 Build-Jdk: 1.8.0_221
+=======
+Built-By: sindr
+Build-Jdk: 1.8.0_111
+>>>>>>> 8e0de4cf5e6835575b422f21cc644623cea082df
 

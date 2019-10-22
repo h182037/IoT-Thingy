@@ -11,9 +11,6 @@
 <h:body onload="#{sessionController.redirect()}#{devicebean.init()}">
     <h1>Greetings, friend!</h1>
 <div class="div-container">
-	<h:form>
-		<h:commandLink action="#{controller.wakeUpUser()}" value="Wake up database."></h:commandLink>
-	</h:form>
     <h:form>
         <h3>Devices</h3>
         <h:selectOneListbox id="list" size="10"
@@ -22,7 +19,15 @@
                             onchange="submit()">
             <f:selectItems value="#{devicebean.data}"/>
         </h:selectOneListbox>
-        <h:outputText id="msg" value="#{devicebean.message}"/>
+        <div>
+            <p><h:outputText id="name" value="#{devicebean.message}"/></p>
+            <p><h:outputText id="tags" value="#{devicebean.tags}"/></p>
+            <p><h:outputText id="url" value="#{devicebean.url}"/></p>
+            <p><h:outputText id="owner" value="#{devicebean.user}"/></p>
+            <p><h:outputText id="online" value="#{devicebean.online}"/></p>
+            <p><h:outputText id="available" value="#{devicebean.available}"/></p>
+        </div>
+
     </h:form>
 </div>
 </h:body>
