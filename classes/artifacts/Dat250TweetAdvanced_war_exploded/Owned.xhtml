@@ -20,14 +20,12 @@
     </h:form>
 <h:form>
 <h2>Devices</h2>
-<h:panelGrid columns="3">
     <h:selectOneListbox id="list" size="10"
                         value="#{mydevicebean.text}"
                         valueChangeListener="#{mydevicebean.valueChanged}"
                         onchange="submit()">
         <f:selectItems value="#{mydevicebean.data}"/>
     </h:selectOneListbox>
-</h:panelGrid>
     <div>
         <p><h:outputText id="name" value="#{mydevicebean.message}"/></p>
         <p><h:outputText id="tags" value="#{mydevicebean.tags}"/></p>

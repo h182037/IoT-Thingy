@@ -57,8 +57,6 @@ public class Dao {
         return usersList;
     }
 
-
-
     public Device getDevice(long id){
         Device device = em.find(Device.class, id);
         return device;

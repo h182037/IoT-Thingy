@@ -78,8 +78,6 @@ public class DeviceBean implements Serializable {
                     d = device;
                 }
             }
-            setText(t);
-            setMessage(t + " selected.");
     }
 
     public String getAvailable() {

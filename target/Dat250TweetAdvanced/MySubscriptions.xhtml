@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<head>
+    <title>My Subscriptions</title>
+</head>
+<h:body onload="#{sessionController.redirectSubs()}#{devicebean.init()}">
+
+    <h:form>
+        <h:panelGrid columns="4">
+            <h:commandButton action = "#{sessionController.redirectOwned()}" value = "My Devices" />
+            <h:commandButton action = "#{sessionController.redirectDevices()}" value = "Find Devices" />
+            <h:commandButton action = "#{sessionController.redirectSubs()}" value = "My Subscriptions" />
+            <h:commandButton action = "#{sessionController.logout()}" value = "Logout" />
+
+        </h:panelGrid>
+    </h:form>
+    <h:form>
+        <h3>Devices</h3>
+        <h:selectOneListbox id="list" size="10"
+                            value="#{devicebean.text}"
+                            valueChangeListener="#{devicebean.valueChanged}"
+                            onchange="submit()">
+            <f:selectItems value="#{devicebean.data}"/>
+        </h:selectOneListbox>
+        <div>
+            <p><h:outputText id="name" value="#{devicebean.message}"/></p>
+            <p><h:outputText id="tags" value="#{devicebean.tags}"/></p>
+            <p><h:outputText id="url" value="#{devicebean.url}"/></p>
+            <p><h:outputText id="owner" value="#{devicebean.user}"/></p>
+            <p><h:outputText id="online" value="#{devicebean.online}"/></p>
+            <p><h:outputText id="available" value="#{devicebean.available}"/></p>
+        </div>
+
+    </h:form>
+
+</h:body>
+
+</html>

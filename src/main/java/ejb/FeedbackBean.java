@@ -2,23 +2,15 @@ package ejb;
 
 import entities.Device;
 import entities.Feedback;
-import entities.Users;
 
 import javax.annotation.ManagedBean;
 import javax.ejb.EJB;
-import javax.ejb.Stateless;
-import javax.enterprise.context.RequestScoped;
-import javax.enterprise.context.SessionScoped;
 import javax.faces.event.ValueChangeEvent;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
-import javax.persistence.PersistenceContext;
-import javax.ws.rs.GET;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import entities.Device;
 
 @ManagedBean
 @Named(value="feedbackbean")
@@ -30,12 +22,50 @@ public class FeedbackBean implements Serializable {
         @EJB
         private Dao dao;
 
-        private List<Feedback> data;
-        private String text;
+        private List<Feedback> feedbackList;
+        private String view;
         private String feed;
+        private Feedback d;
+        private String user;
+        private String t;
+        private Device device;
 
-    public String getText() {
-        return text;
+        public FeedbackBean(){
+            d = new Feedback();
+            d.setText("None");
+            d.setAuthor("no one");
+            device = new Device();
+            d.setTarget(device);
+        }
+
+    public void init(){
+            feedbackList = new ArrayList<>();
+            feedbackList.addAll(this.dao.getAllFeedbacks());
+            setView(d.getAuthor());
+            setFeed(d.getText());
+            setUser("Author: " + d.getAuthor());
+        }
+
+
+    public void valueChanged(ValueChangeEvent e){
+        t = (String) e.getNewValue();
+        for(Feedback feedback : feedbackList){
+            if(feedback.getAuthor().equals(t)){
+                d = feedback;
+            }
+        }
+    }
+
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+    public String getView() {
+        return view;
     }
 
     public String getFeed() {
@@ -46,53 +76,17 @@ public class FeedbackBean implements Serializable {
         this.feed = feed;
     }
 
-    private Feedback d;
-        private String user;
 
-
-        public FeedbackBean(){
-            d = new Feedback();
-            d.setText("None");
-            d.setAuthor("no one");
-        }
+    public void setView(String name) {
+        view = name;
+    }
 
     public List<Feedback> getData() {
-        return data;
+        return feedbackList;
     }
 
     public void setData(List<Feedback> data) {
-        this.data = data;
-    }
-
-    public void init(){
-            data = new ArrayList<>();
-            data.addAll(this.dao.getAllFeedbacks());
-            setText(d.getAuthor());
-            setFeed(d.getText());
-            setUser("Author: " + d.getAuthor());
-        }
-
-        public String getUser() {
-            return user;
-        }
-
-        public void setUser(String user) {
-            this.user = user;
-        }
-
-
-        public void setText(String name) {
-            text = name;
-        }
-    public void valueChanged(ValueChangeEvent e){
-        String t = (String) e.getNewValue();
-        for(Feedback feedback : data){
-            if(feedback.getAuthor().equals(t)){
-                d = feedback;
-            }
-        }
-        d.setText(t);
-        d.setAuthor(t + " selected.");
+        this.feedbackList = data;
     }
 
     }

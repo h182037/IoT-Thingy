@@ -1,6 +1,13 @@
 ejb\Constants.class
 ejb\SessionUtils.class
 rest\RestService.class
+ejb\Controller.class
 entities\Feedback.class
+ejb\FeedbackBean.class
+entities\Subscription.class
+ejb\myDeviceBean.class
 entities\Users.class
+ejb\Dao.class
+ejb\DeviceBean.class
+entities\Device.class
 ejb\SessionController.class

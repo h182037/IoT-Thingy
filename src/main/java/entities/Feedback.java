@@ -31,7 +31,7 @@ public class Feedback implements Serializable {
     private String author;
 
 
-    public static final String FIND_ALL = "Users.findAll";
+    public static final String FIND_ALL = "Feedback.findAll";
 
     public Feedback() {
     }
@@ -52,7 +52,6 @@ public class Feedback implements Serializable {
         this.author = author;
     }
 
-
     public Long getId() {
         return id;
     }
@@ -66,6 +65,11 @@ public class Feedback implements Serializable {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    @Override
+    public String toString(){
+        return this.author;
     }
 
 }
