@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<head>
+    <title>Owned</title>
+</head>
+<body>
+
+<h:form>
+    <h:panelGrid columns="3">
+        <h:commandButton action = "Owned" value = "Owned" />
+        <h:commandButton action = "findDevice" value = "findDevice" />
+        <h:commandButton action = "subscription" value = "subscription" />
+    </h:panelGrid>
+</h:form>
+
+<h2>Devices</h2>
+<h:panelGrid columns="3">
+    <h:selectOneListbox id="list" size="10"
+                        value="#{devicebean.text}"
+                        valueChangeListener="#{devicebean.valueChanged}"
+                        onchange="submit()">
+        <f:selectItems value="#{devicebean.data}"/>
+    </h:selectOneListbox>
+
+  <h:dataTable value="#{devicebean.message}" var = "data">
+      <h:column>
+          <f:facet name = "header">Device selected</f:facet>
+          <h:outputText value = "#{data}" />
+      </h:column>
+
+      <h:column>
+          <f:facet name = "header">Description</f:facet>
+          <h:outputText value = "Sjukt bra" />
+      </h:column>
+
+  </h:dataTable>
+
+    <h:selectOneListbox value = "#{userData.data}">
+        <f:selectItem itemValue = "1" itemLabel = "Item 1" />
+        <f:selectItem itemValue = "2" itemLabel = "Item 2" />
+    </h:selectOneListbox>
+
+</h:panelGrid>
+</body>
+
+</html>

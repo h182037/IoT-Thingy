@@ -33,6 +33,9 @@ public class Device implements Serializable {
 
     private String url;
 
+
+    private String description;
+
     @OneToMany(mappedBy = "subscribed", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     private List<Subscription> subscriptionList;
 
@@ -120,31 +123,40 @@ public class Device implements Serializable {
     public void setUrl(String url) {
         this.url = url;
     }
-/*
-    public List<Tag> getTags() {
-        return tags;
+
+    public String getDescription() {
+        return description;
     }
 
-    public void setTags(List<Tag> tags) {
-        this.tags = tags;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public List<Feedback> getFeedback() {
-        return feedback;
-    }
+    /*
+            public List<Tag> getTags() {
+                return tags;
+            }
 
-    public void setFeedback(List<Feedback> feedback) {
-        this.feedback = feedback;
-    }
+            public void setTags(List<Tag> tags) {
+                this.tags = tags;
+            }
 
-    public Users getOwner() {
-        return owner;
-    }
+            public List<Feedback> getFeedback() {
+                return feedback;
+            }
 
-    public void setOwner(Users owner) {
-        this.owner = owner;
-    }
-*/
+            public void setFeedback(List<Feedback> feedback) {
+                this.feedback = feedback;
+            }
+
+            public Users getOwner() {
+                return owner;
+            }
+
+            public void setOwner(Users owner) {
+                this.owner = owner;
+            }
+        */
     public boolean isOnline() {
         return online;
     }
