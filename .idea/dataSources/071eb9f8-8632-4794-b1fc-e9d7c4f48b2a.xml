@@ -227,7 +227,11 @@
     <database id="57" parent="1" name="db2019_g02">
       <ObjectId>930358</ObjectId>
       <Owner>g2019_02</Owner>
+<<<<<<< HEAD
       <IntrospectionStateNumber>458125</IntrospectionStateNumber>
+=======
+      <IntrospectionStateNumber>458121</IntrospectionStateNumber>
+>>>>>>> 109fa14e2317645ac63688a0153494dde26e2438
       <Current>1</Current>
     </database>
     <database id="58" parent="1" name="db2019_g03">
@@ -1569,7 +1573,11 @@
       <Comment>standard public schema</Comment>
       <StateNumber>2</StateNumber>
       <Owner>postgres</Owner>
+<<<<<<< HEAD
       <IntrospectionStateNumber>458126</IntrospectionStateNumber>
+=======
+      <IntrospectionStateNumber>458122</IntrospectionStateNumber>
+>>>>>>> 109fa14e2317645ac63688a0153494dde26e2438
       <Current>1</Current>
     </schema>
     <access-method id="284" parent="57" name="btree">
@@ -1605,89 +1613,716 @@
       <SchemaName>pg_catalog</SchemaName>
       <SchemaId>11</SchemaId>
     </extension>
+<<<<<<< HEAD
     <table id="290" parent="283" name="device">
+=======
+    <schema id="403" parent="58" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="404" parent="58" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="405" parent="59" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="406" parent="59" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="407" parent="60" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="408" parent="60" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="409" parent="61" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="410" parent="61" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="411" parent="62" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="412" parent="62" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="413" parent="63" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="414" parent="63" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="415" parent="64" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="416" parent="64" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="417" parent="65" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="418" parent="65" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="419" parent="66" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="420" parent="66" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="421" parent="67" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="422" parent="67" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="423" parent="68" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="424" parent="68" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="425" parent="69" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="426" parent="69" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="427" parent="70" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="428" parent="70" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="429" parent="71" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="430" parent="71" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="431" parent="72" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="432" parent="72" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="433" parent="73" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="434" parent="73" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="435" parent="74" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="436" parent="74" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="437" parent="75" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="438" parent="75" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="439" parent="76" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="440" parent="76" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="441" parent="77" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="442" parent="77" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="443" parent="78" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="444" parent="78" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="445" parent="79" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="446" parent="79" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="447" parent="80" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="448" parent="80" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="449" parent="81" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="450" parent="81" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="451" parent="82" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="452" parent="82" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="453" parent="83" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="454" parent="83" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="455" parent="84" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="456" parent="84" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="457" parent="85" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="458" parent="85" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="459" parent="86" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="460" parent="86" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="461" parent="87" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="462" parent="87" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="463" parent="88" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="464" parent="88" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="465" parent="89" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="466" parent="89" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="467" parent="90" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="468" parent="90" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="469" parent="91" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="470" parent="91" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="471" parent="92" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="472" parent="92" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="473" parent="93" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="474" parent="93" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="475" parent="94" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="476" parent="94" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="477" parent="95" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="478" parent="95" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="479" parent="96" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="480" parent="96" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="481" parent="97" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="482" parent="97" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="483" parent="98" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="484" parent="98" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="485" parent="99" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="486" parent="99" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="487" parent="100" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="488" parent="100" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="489" parent="101" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="490" parent="101" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="491" parent="102" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="492" parent="102" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="493" parent="103" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="494" parent="103" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="495" parent="104" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="496" parent="104" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="497" parent="105" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="498" parent="105" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="499" parent="106" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="500" parent="106" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="501" parent="107" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="502" parent="107" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="503" parent="108" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="504" parent="108" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="505" parent="109" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="506" parent="109" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="507" parent="110" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="508" parent="110" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="509" parent="111" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="510" parent="111" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="511" parent="112" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="512" parent="112" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="513" parent="113" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="514" parent="113" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="515" parent="114" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="516" parent="114" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="517" parent="115" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="518" parent="115" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="519" parent="116" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="520" parent="116" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="521" parent="117" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="522" parent="117" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="523" parent="118" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="524" parent="118" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="525" parent="119" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="526" parent="119" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="527" parent="120" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="528" parent="120" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="529" parent="121" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="530" parent="121" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="531" parent="122" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="532" parent="122" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="533" parent="123" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="534" parent="123" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="535" parent="124" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="536" parent="124" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="537" parent="125" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="538" parent="125" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="539" parent="126" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="540" parent="126" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="541" parent="127" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="542" parent="127" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="543" parent="128" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="544" parent="128" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="545" parent="129" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="546" parent="129" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="547" parent="130" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="548" parent="130" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="549" parent="131" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="550" parent="131" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="551" parent="132" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="552" parent="132" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="553" parent="133" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="554" parent="133" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="555" parent="134" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="556" parent="134" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="557" parent="135" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="558" parent="135" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="559" parent="136" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="560" parent="136" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="561" parent="137" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="562" parent="137" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="563" parent="138" name="information_schema">
+      <Substituted>1</Substituted>
+    </schema>
+    <schema id="564" parent="138" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <Substituted>1</Substituted>
+    </schema>
+    <table id="565" parent="396" name="device">
+>>>>>>> 109fa14e2317645ac63688a0153494dde26e2438
       <ObjectId>959099</ObjectId>
       <Owner>g2019_02</Owner>
       <StateNumber>458063</StateNumber>
     </table>
+<<<<<<< HEAD
     <table id="291" parent="283" name="feedback">
+=======
+    <table id="566" parent="396" name="feedback">
+>>>>>>> 109fa14e2317645ac63688a0153494dde26e2438
       <ObjectId>959112</ObjectId>
       <Owner>g2019_02</Owner>
       <StateNumber>458063</StateNumber>
     </table>
+<<<<<<< HEAD
     <table id="292" parent="283" name="sequence">
+=======
+    <table id="567" parent="396" name="sequence">
+>>>>>>> 109fa14e2317645ac63688a0153494dde26e2438
       <ObjectId>959148</ObjectId>
       <Owner>g2019_02</Owner>
       <StateNumber>458064</StateNumber>
     </table>
+<<<<<<< HEAD
     <table id="293" parent="283" name="subscription">
+=======
+    <table id="568" parent="396" name="subscription">
+>>>>>>> 109fa14e2317645ac63688a0153494dde26e2438
       <ObjectId>959107</ObjectId>
       <Owner>g2019_02</Owner>
       <StateNumber>458062</StateNumber>
     </table>
+<<<<<<< HEAD
     <table id="294" parent="283" name="users">
+=======
+    <table id="569" parent="396" name="users">
+>>>>>>> 109fa14e2317645ac63688a0153494dde26e2438
       <ObjectId>959120</ObjectId>
       <Owner>g2019_02</Owner>
       <StateNumber>458061</StateNumber>
     </table>
+<<<<<<< HEAD
     <column id="295" parent="290" name="id">
+=======
+    <column id="570" parent="565" name="id">
+>>>>>>> 109fa14e2317645ac63688a0153494dde26e2438
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>458056</StateNumber>
       <TypeId>20</TypeId>
     </column>
+<<<<<<< HEAD
     <column id="296" parent="290" name="available">
+=======
+    <column id="571" parent="565" name="available">
+>>>>>>> 109fa14e2317645ac63688a0153494dde26e2438
       <Position>2</Position>
       <DataType>boolean|0s</DataType>
       <StateNumber>458056</StateNumber>
       <TypeId>16</TypeId>
     </column>
+<<<<<<< HEAD
     <column id="297" parent="290" name="name">
+=======
+    <column id="572" parent="565" name="name">
+>>>>>>> 109fa14e2317645ac63688a0153494dde26e2438
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>458056</StateNumber>
       <TypeId>1043</TypeId>
     </column>
+<<<<<<< HEAD
     <column id="298" parent="290" name="online">
+=======
+    <column id="573" parent="565" name="online">
+>>>>>>> 109fa14e2317645ac63688a0153494dde26e2438
       <Position>4</Position>
       <DataType>boolean|0s</DataType>
       <StateNumber>458056</StateNumber>
       <TypeId>16</TypeId>
     </column>
+<<<<<<< HEAD
     <column id="299" parent="290" name="tags">
+=======
+    <column id="574" parent="565" name="tags">
+>>>>>>> 109fa14e2317645ac63688a0153494dde26e2438
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>458056</StateNumber>
       <TypeId>1043</TypeId>
     </column>
+<<<<<<< HEAD
     <column id="300" parent="290" name="url">
+=======
+    <column id="575" parent="565" name="url">
+>>>>>>> 109fa14e2317645ac63688a0153494dde26e2438
       <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>458056</StateNumber>
       <TypeId>1043</TypeId>
     </column>
+<<<<<<< HEAD
     <column id="301" parent="290" name="users_id">
+=======
+    <column id="576" parent="565" name="users_id">
+>>>>>>> 109fa14e2317645ac63688a0153494dde26e2438
       <Position>7</Position>
       <DataType>bigint|0s</DataType>
       <StateNumber>458056</StateNumber>
       <TypeId>20</TypeId>
     </column>
+<<<<<<< HEAD
     <index id="302" parent="290" name="device_pkey">
+=======
+    <index id="577" parent="565" name="device_pkey">
+>>>>>>> 109fa14e2317645ac63688a0153494dde26e2438
       <ObjectId>959105</ObjectId>
       <StateNumber>458056</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
+<<<<<<< HEAD
     <key id="303" parent="290" name="device_pkey">
+=======
+    <key id="578" parent="565" name="device_pkey">
+>>>>>>> 109fa14e2317645ac63688a0153494dde26e2438
       <ObjectId>959106</ObjectId>
       <StateNumber>458056</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>device_pkey</UnderlyingIndexName>
     </key>
+<<<<<<< HEAD
     <foreign-key id="304" parent="290" name="fk_device_users_id">
+=======
+    <foreign-key id="579" parent="565" name="fk_device_users_id">
+>>>>>>> 109fa14e2317645ac63688a0153494dde26e2438
       <ObjectId>959128</ObjectId>
       <StateNumber>458060</StateNumber>
       <ColNames>users_id</ColNames>
@@ -1697,46 +2332,74 @@
       <RefKeyName>users_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
+<<<<<<< HEAD
     <column id="305" parent="291" name="id">
+=======
+    <column id="580" parent="566" name="id">
+>>>>>>> 109fa14e2317645ac63688a0153494dde26e2438
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>458058</StateNumber>
       <TypeId>20</TypeId>
     </column>
+<<<<<<< HEAD
     <column id="306" parent="291" name="author">
+=======
+    <column id="581" parent="566" name="author">
+>>>>>>> 109fa14e2317645ac63688a0153494dde26e2438
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>458058</StateNumber>
       <TypeId>1043</TypeId>
     </column>
+<<<<<<< HEAD
     <column id="307" parent="291" name="text">
+=======
+    <column id="582" parent="566" name="text">
+>>>>>>> 109fa14e2317645ac63688a0153494dde26e2438
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>458058</StateNumber>
       <TypeId>1043</TypeId>
     </column>
+<<<<<<< HEAD
     <column id="308" parent="291" name="target_id">
+=======
+    <column id="583" parent="566" name="target_id">
+>>>>>>> 109fa14e2317645ac63688a0153494dde26e2438
       <Position>4</Position>
       <DataType>bigint|0s</DataType>
       <StateNumber>458058</StateNumber>
       <TypeId>20</TypeId>
     </column>
+<<<<<<< HEAD
     <index id="309" parent="291" name="feedback_pkey">
+=======
+    <index id="584" parent="566" name="feedback_pkey">
+>>>>>>> 109fa14e2317645ac63688a0153494dde26e2438
       <ObjectId>959118</ObjectId>
       <StateNumber>458058</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
+<<<<<<< HEAD
     <key id="310" parent="291" name="feedback_pkey">
+=======
+    <key id="585" parent="566" name="feedback_pkey">
+>>>>>>> 109fa14e2317645ac63688a0153494dde26e2438
       <ObjectId>959119</ObjectId>
       <StateNumber>458058</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>feedback_pkey</UnderlyingIndexName>
     </key>
+<<<<<<< HEAD
     <foreign-key id="311" parent="291" name="fk_feedback_target_id">
+=======
+    <foreign-key id="586" parent="566" name="fk_feedback_target_id">
+>>>>>>> 109fa14e2317645ac63688a0153494dde26e2438
       <ObjectId>959143</ObjectId>
       <StateNumber>458063</StateNumber>
       <ColNames>target_id</ColNames>
@@ -1746,73 +2409,117 @@
       <RefKeyName>device_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
+<<<<<<< HEAD
     <column id="312" parent="292" name="seq_name">
+=======
+    <column id="587" parent="567" name="seq_name">
+>>>>>>> 109fa14e2317645ac63688a0153494dde26e2438
       <Position>1</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>458064</StateNumber>
       <TypeId>1043</TypeId>
     </column>
+<<<<<<< HEAD
     <column id="313" parent="292" name="seq_count">
+=======
+    <column id="588" parent="567" name="seq_count">
+>>>>>>> 109fa14e2317645ac63688a0153494dde26e2438
       <Position>2</Position>
       <DataType>numeric(38)|0s</DataType>
       <StateNumber>458064</StateNumber>
       <TypeId>1700</TypeId>
     </column>
+<<<<<<< HEAD
     <index id="314" parent="292" name="sequence_pkey">
+=======
+    <index id="589" parent="567" name="sequence_pkey">
+>>>>>>> 109fa14e2317645ac63688a0153494dde26e2438
       <ObjectId>959151</ObjectId>
       <StateNumber>458064</StateNumber>
       <ColNames>seq_name</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
+<<<<<<< HEAD
     <key id="315" parent="292" name="sequence_pkey">
+=======
+    <key id="590" parent="567" name="sequence_pkey">
+>>>>>>> 109fa14e2317645ac63688a0153494dde26e2438
       <ObjectId>959152</ObjectId>
       <StateNumber>458064</StateNumber>
       <ColNames>seq_name</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>sequence_pkey</UnderlyingIndexName>
     </key>
+<<<<<<< HEAD
     <column id="316" parent="293" name="id">
+=======
+    <column id="591" parent="568" name="id">
+>>>>>>> 109fa14e2317645ac63688a0153494dde26e2438
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>458057</StateNumber>
       <TypeId>20</TypeId>
     </column>
+<<<<<<< HEAD
     <column id="317" parent="293" name="verified">
+=======
+    <column id="592" parent="568" name="verified">
+>>>>>>> 109fa14e2317645ac63688a0153494dde26e2438
       <Position>2</Position>
       <DataType>boolean|0s</DataType>
       <StateNumber>458057</StateNumber>
       <TypeId>16</TypeId>
     </column>
+<<<<<<< HEAD
     <column id="318" parent="293" name="subscribed_id">
+=======
+    <column id="593" parent="568" name="subscribed_id">
+>>>>>>> 109fa14e2317645ac63688a0153494dde26e2438
       <Position>3</Position>
       <DataType>bigint|0s</DataType>
       <StateNumber>458057</StateNumber>
       <TypeId>20</TypeId>
     </column>
+<<<<<<< HEAD
     <column id="319" parent="293" name="user_id">
+=======
+    <column id="594" parent="568" name="user_id">
+>>>>>>> 109fa14e2317645ac63688a0153494dde26e2438
       <Position>4</Position>
       <DataType>bigint|0s</DataType>
       <StateNumber>458057</StateNumber>
       <TypeId>20</TypeId>
     </column>
+<<<<<<< HEAD
     <index id="320" parent="293" name="subscription_pkey">
+=======
+    <index id="595" parent="568" name="subscription_pkey">
+>>>>>>> 109fa14e2317645ac63688a0153494dde26e2438
       <ObjectId>959110</ObjectId>
       <StateNumber>458057</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
+<<<<<<< HEAD
     <key id="321" parent="293" name="subscription_pkey">
+=======
+    <key id="596" parent="568" name="subscription_pkey">
+>>>>>>> 109fa14e2317645ac63688a0153494dde26e2438
       <ObjectId>959111</ObjectId>
       <StateNumber>458057</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>subscription_pkey</UnderlyingIndexName>
     </key>
+<<<<<<< HEAD
     <foreign-key id="322" parent="293" name="fk_subscription_subscribed_id">
+=======
+    <foreign-key id="597" parent="568" name="fk_subscription_subscribed_id">
+>>>>>>> 109fa14e2317645ac63688a0153494dde26e2438
       <ObjectId>959138</ObjectId>
       <StateNumber>458062</StateNumber>
       <ColNames>subscribed_id</ColNames>
@@ -1822,7 +2529,11 @@
       <RefKeyName>device_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
+<<<<<<< HEAD
     <foreign-key id="323" parent="293" name="fk_subscription_user_id">
+=======
+    <foreign-key id="598" parent="568" name="fk_subscription_user_id">
+>>>>>>> 109fa14e2317645ac63688a0153494dde26e2438
       <ObjectId>959133</ObjectId>
       <StateNumber>458061</StateNumber>
       <ColNames>user_id</ColNames>
@@ -1832,33 +2543,53 @@
       <RefKeyName>users_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
+<<<<<<< HEAD
     <column id="324" parent="294" name="id">
+=======
+    <column id="599" parent="569" name="id">
+>>>>>>> 109fa14e2317645ac63688a0153494dde26e2438
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>458059</StateNumber>
       <TypeId>20</TypeId>
     </column>
+<<<<<<< HEAD
     <column id="325" parent="294" name="password">
+=======
+    <column id="600" parent="569" name="password">
+>>>>>>> 109fa14e2317645ac63688a0153494dde26e2438
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>458059</StateNumber>
       <TypeId>1043</TypeId>
     </column>
+<<<<<<< HEAD
     <column id="326" parent="294" name="username">
+=======
+    <column id="601" parent="569" name="username">
+>>>>>>> 109fa14e2317645ac63688a0153494dde26e2438
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>458059</StateNumber>
       <TypeId>1043</TypeId>
     </column>
+<<<<<<< HEAD
     <index id="327" parent="294" name="users_pkey">
+=======
+    <index id="602" parent="569" name="users_pkey">
+>>>>>>> 109fa14e2317645ac63688a0153494dde26e2438
       <ObjectId>959126</ObjectId>
       <StateNumber>458059</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
+<<<<<<< HEAD
     <key id="328" parent="294" name="users_pkey">
+=======
+    <key id="603" parent="569" name="users_pkey">
+>>>>>>> 109fa14e2317645ac63688a0153494dde26e2438
       <ObjectId>959127</ObjectId>
       <StateNumber>458059</StateNumber>
       <ColNames>id</ColNames>

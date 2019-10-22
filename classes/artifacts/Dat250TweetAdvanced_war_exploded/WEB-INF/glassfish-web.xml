@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glassfish-web-app>
+
+    <security-role-mapping>
+        <role-name>USERS</role-name>
+        <principal-name>USERS</principal-name>
+    </security-role-mapping>
+
+    <security-role-mapping>
+        <role-name>ADMIN</role-name>
+        <group-name>ADMIN</group-name>
+    </security-role-mapping>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>login</web-resource-name>
+            <url-pattern>/login/*</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>USERS</role-name>
+        </auth-constraint>
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+
+    <target name="create-forest-realm" depends="create-forest-resource"
+            description="create JDBC realm">
+        <antcall target="create-jdbc-realm">
+            <param name="jdbc.resource.name" value="jdbc/forest" />
+            <param name="jdbc.realm.name" value="jdbcRealm" />
+            <param name="user.table.name" value="USERS.USER" />
+            <param name="user.name.column" value="username" />
+            <param name="password.column" value="password" />
+            <param name="group.table" value="forest.GROUPS" />
+            <param name="group.name.column" value="name" />
+            <param name="assign.groups" value="USERS,ADMIN" />
+            <param name="digest.algorithm" value="MD5" />
+        </antcall>
+    </target>
+    <login-config>
+    <auth-method>FORM</auth-method>
+    <realm-name>jdbcRealm</realm-name>
+    <form-login-config>
+        <form-login-page>/login.xhtml</form-login-page>
+        <form-error-page>/login.xhtml</form-error-page>
+    </form-login-config>
+</login-config>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Secure Pages</web-resource-name>
+            <description/>
+            <url-pattern>/admin/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>ADMIN</role-name>
+        </auth-constraint>
+    </security-constraint>
+</glassfish-web-app>

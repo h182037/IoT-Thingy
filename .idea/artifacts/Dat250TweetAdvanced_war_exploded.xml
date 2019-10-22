@@ -1,13 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="Dat250TweetAdvanced:war exploded">
-    <output-path>$PROJECT_DIR$/target/Dat250TweetAdvanced</output-path>
-    <properties id="maven-jee-properties">
-      <options>
-        <exploded>true</exploded>
-        <module>Dat250TweetAdvanced</module>
-        <packaging>war</packaging>
-      </options>
-    </properties>
+    <output-path>$PROJECT_DIR$/classes/artifacts/Dat250TweetAdvanced_war_exploded</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
@@ -24,9 +17,8 @@
           <element id="library" level="project" name="Maven: org.glassfish:javax.json:1.0.4" />
         </element>
       </element>
-      <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/target/Dat250TweetAdvanced/META-INF/MANIFEST.MF" />
-      </element>
+      <element id="library" level="project" name="postgresql-42.2.4.jre6" />
+      <element id="library" level="project" name="jackson-module-jaxb-annotations-2.1.2" />
       <element id="javaee-facet-resources" facet="Dat250TweetAdvanced/web/Web" />
     </root>
   </artifact>
