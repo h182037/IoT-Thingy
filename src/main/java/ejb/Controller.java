@@ -36,6 +36,8 @@ public class Controller implements Serializable {
 		return reverseDeviceList;
 	}
 
+
+
     public void storeUser(Users u) throws NamingException {
 	    dao.persistUser(u);
     }

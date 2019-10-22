@@ -8,16 +8,16 @@
 <head>
     <title>Owned</title>
 </head>
-<body>
+<h:body onload="#{sessionController.redirectOwned()}#{devicebean.init()}">
 
+    <h:form>
+        <h:panelGrid columns="3">
+            <h:commandButton action = "#{sessionController.redirectOwned()}" value = "My Devices" />
+            <h:commandButton action = "#{sessionController.redirectDevices()}" value = "Find Devices" />
+            <h:commandButton action = "#{sessionController.redirectSubs()}" value = "My Subscriptions" />
+        </h:panelGrid>
+    </h:form>
 <h:form>
-    <h:panelGrid columns="3">
-        <h:commandButton action = "Owned" value = "Owned" />
-        <h:commandButton action = "findDevice" value = "findDevice" />
-        <h:commandButton action = "subscription" value = "subscription" />
-    </h:panelGrid>
-</h:form>
-
 <h2>Devices</h2>
 <h:panelGrid columns="3">
     <h:selectOneListbox id="list" size="10"
@@ -26,26 +26,16 @@
                         onchange="submit()">
         <f:selectItems value="#{devicebean.data}"/>
     </h:selectOneListbox>
-
-  <h:dataTable value="#{devicebean.message}" var = "data">
-      <h:column>
-          <f:facet name = "header">Device selected</f:facet>
-          <h:outputText value = "#{data}" />
-      </h:column>
-
-      <h:column>
-          <f:facet name = "header">Description</f:facet>
-          <h:outputText value = "Sjukt bra" />
-      </h:column>
-
-  </h:dataTable>
-
-    <h:selectOneListbox value = "#{userData.data}">
-        <f:selectItem itemValue = "1" itemLabel = "Item 1" />
-        <f:selectItem itemValue = "2" itemLabel = "Item 2" />
-    </h:selectOneListbox>
-
 </h:panelGrid>
-</body>
+    <div>
+        <p><h:outputText id="name" value="#{devicebean.message}"/></p>
+        <p><h:outputText id="tags" value="#{devicebean.tags}"/></p>
+        <p><h:outputText id="url" value="#{devicebean.url}"/></p>
+        <p><h:outputText id="owner" value="#{devicebean.user}"/></p>
+        <p><h:outputText id="online" value="#{devicebean.online}"/></p>
+        <p><h:outputText id="available" value="#{devicebean.available}"/></p>
+    </div>
+</h:form>
+</h:body>
 
 </html>

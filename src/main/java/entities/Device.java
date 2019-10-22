@@ -33,9 +33,6 @@ public class Device implements Serializable {
 
     private String url;
 
-
-    private String description;
-
     @OneToMany(mappedBy = "subscribed", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     private List<Subscription> subscriptionList;
 
@@ -122,14 +119,6 @@ public class Device implements Serializable {
 
     public void setUrl(String url) {
         this.url = url;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     /*

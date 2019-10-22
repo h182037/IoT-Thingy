@@ -50,6 +50,15 @@ public class Dao {
         return devices;
     }
 
+    public List<Users> getAllUsers() {
+        Query query = em.createNamedQuery(Users.FIND_ALL);
+        List<Users> usersList;
+        usersList = query.getResultList();
+        return usersList;
+    }
+
+
+
     public Device getDevice(long id){
         Device device = em.find(Device.class, id);
         return device;

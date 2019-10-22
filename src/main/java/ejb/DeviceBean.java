@@ -31,7 +31,6 @@ public class DeviceBean implements Serializable {
     private List<Device> data;
     private String text;
     private String message;
-    private String description;
     private String tags;
     private String url;
     private String available;
@@ -153,9 +152,4 @@ public class DeviceBean implements Serializable {
         text = name;
     }
 
-    public void setDescription(String d1) { description = d1;}
-
-    public String getDescription() {
-        return description;
-    }
 }

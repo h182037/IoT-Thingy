@@ -8,19 +8,36 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://primefaces.org/ui ">
 <head>
-    <title>Find divices</title>
+    <title>Find Devices</title>
 </head>
-<body>
+<h:body onload="#{sessionController.redirectDevices()}#{devicebean.init()}">
 
 <h:form>
     <h:panelGrid columns="3">
-    <h:commandButton action = "Owned" value = "Owned" />
-    <h:commandButton action = "findDevice" value = "findDevice" />
-    <h:commandButton action = "subscription" value = "subscription" />
+    <h:commandButton action = "#{sessionController.redirectOwned()}" value = "My Devices" />
+    <h:commandButton action = "#{sessionController.redirectDevices()}" value = "Find Devices" />
+    <h:commandButton action = "#{sessionController.redirectSubs()}" value = "My Subscriptions" />
     </h:panelGrid>
 </h:form>
+<h:form>
+    <h3>Devices</h3>
+    <h:selectOneListbox id="list" size="10"
+                        value="#{devicebean.text}"
+                        valueChangeListener="#{devicebean.valueChanged}"
+                        onchange="submit()">
+        <f:selectItems value="#{devicebean.data}"/>
+    </h:selectOneListbox>
+    <div>
+        <p><h:outputText id="name" value="#{devicebean.message}"/></p>
+        <p><h:outputText id="tags" value="#{devicebean.tags}"/></p>
+        <p><h:outputText id="url" value="#{devicebean.url}"/></p>
+        <p><h:outputText id="owner" value="#{devicebean.user}"/></p>
+        <p><h:outputText id="online" value="#{devicebean.online}"/></p>
+        <p><h:outputText id="available" value="#{devicebean.available}"/></p>
+    </div>
 
+</h:form>
 
-</body>
+</h:body>
 
 </html>

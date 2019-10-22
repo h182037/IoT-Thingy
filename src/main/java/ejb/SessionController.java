@@ -1,8 +1,13 @@
 package ejb;
 
+import entities.Users;
+
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import javax.servlet.http.HttpSession;
@@ -11,6 +16,9 @@ import javax.servlet.http.HttpSession;
 @Named(value = "sessionController")
 @SessionScoped
 public class SessionController implements Serializable {
+
+	@EJB
+	private Dao dao;
 
 	private static final long serialVersionUID = 1L;
 
@@ -37,7 +45,11 @@ public class SessionController implements Serializable {
 	public String validateUsernamePassword() {
 		HttpSession session = SessionUtils.getSession();
 		session.setAttribute(Constants.USERNAME, this.username);
-		return Constants.INDEX;
+		if(validateLogin()){
+			return Constants.FIND;
+		}else {
+			return Constants.LOGIN;
+		}
 	}
 
 	public String logout() {
@@ -46,12 +58,40 @@ public class SessionController implements Serializable {
 		return Constants.LOGIN;
 	}
 	
-	public String redirect() throws IOException {
+	public String redirectOwned() throws IOException {
 		HttpSession session = SessionUtils.getSession();
 		if (session.getAttribute(Constants.USERNAME)==null) {
 			SessionUtils.getResponse().sendRedirect(Constants.LOGIN + ".xhtml");
 		}
-		return Constants.INDEX;
+		return Constants.OWNED;
+	}
+
+	public String redirectSubs() throws IOException {
+		HttpSession session = SessionUtils.getSession();
+		if (session.getAttribute(Constants.USERNAME)==null) {
+			SessionUtils.getResponse().sendRedirect(Constants.LOGIN + ".xhtml");
+		}
+		return Constants.SUBS;
+	}
+
+	public String redirectDevices() throws IOException {
+		HttpSession session = SessionUtils.getSession();
+		if (session.getAttribute(Constants.USERNAME)==null) {
+			SessionUtils.getResponse().sendRedirect(Constants.LOGIN + ".xhtml");
+		}
+		return Constants.FIND;
+	}
+
+	public boolean validateLogin(){
+		List<Users> usersList = new ArrayList<>();
+		usersList.addAll(this.dao.getAllUsers());
+		boolean validated = false;
+		for(Users u : usersList){
+			if(u.getUsername().equals(username) && u.getPassword().equals(password)){
+				validated = true;
+			}
+		}
+		return validated;
 	}
 
 

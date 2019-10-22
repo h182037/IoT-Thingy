@@ -30,7 +30,7 @@
     <url-pattern>/rest/*</url-pattern>
   </servlet-mapping>
   <welcome-file-list>
-    <welcome-file>findDevice.xhtml</welcome-file>
+    <welcome-file>login.xhtml</welcome-file>
   </welcome-file-list>
 
   <security-constraint>
@@ -63,7 +63,7 @@
     <realm-name>FileRealm</realm-name>
     <form-login-config>
       <form-login-page>/login.xhtml</form-login-page>
-      <form-error-page>/index.xhtml</form-error-page>
+      <form-error-page>/login.xhtml</form-error-page>
     </form-login-config>    </login-config>
 
 
