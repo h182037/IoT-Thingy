@@ -1,14 +1,18 @@
 package ejb;
 
 import entities.Device;
+import entities.Users;
 
 import javax.annotation.ManagedBean;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.event.ValueChangeEvent;
+import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import javax.persistence.PersistenceContext;
+import javax.ws.rs.GET;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -16,7 +20,7 @@ import java.util.List;
 
 @ManagedBean
 @Named(value="devicebean")
-@SessionScoped
+@ViewScoped
 public class DeviceBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -28,30 +32,106 @@ public class DeviceBean implements Serializable {
     private String text;
     private String message;
     private String description;
+    private String tags;
+    private String url;
+    private String available;
+    private String online;
+    private Device d;
+    private String user;
+    private String t;
 
     public DeviceBean(){
+        d = new Device();
+        d.setName("None");
+        d.setTags("Nothing");
+        d.setUrl("https://localnope:0000");
+        d.setOnline(false);
+        d.setAvailable(false);
+        Users u = new Users();
+        u.setUsername("No one");
+        d.setUser(u);
+    }
+
+    public void init(){
         data = new ArrayList<>();
-       // data.addAll(this.dao.getAllDevices());
-        if(data.isEmpty()){
-            Device d = new Device();
-            d.setTags("vann og sånt.");
-            d.setAvailable(false);
-            d.setOnline(false);
-            d.setUrl("aopspoamc");
-            d.setName("heppatittentei");
-            d.setDescription("sykt bra");
-            data.add(d);
-        }
-        Device d = data.get(0);
+        data.addAll(this.dao.getAllDevices());
         setText(d.getName());
-        setMessage(d.getName());
-        setDescription(d.getDescription());
+        setMessage("Name: " + d.getName());
+        setTags("Tags: " + d.getTags());
+        setUrl("URL: " + d.getUrl());
+        setUser("Owner: " + d.getUser().getUsername());
+        if(d.isOnline()){
+            setOnline("Online");
+        }else{
+            setOnline("Offline");
+        }
+        if(d.isAvailable()){
+            setAvailable("Available");
+        }else{
+            setAvailable("Unavailable");
+        }
     }
 
     public void valueChanged(ValueChangeEvent e){
-        String t = (String) e.getNewValue();
-        setMessage(t);
+            t = (String) e.getNewValue();
+            for(Device device : data){
+                if(device.getName().equals(t)){
+                    d = device;
+                }
+            }
+            setText(t);
+            setMessage(t + " selected.");
     }
+
+    public String getAvailable() {
+        return available;
+    }
+
+    public String getOnline() {
+        return online;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public String getTags() {
+        return tags;
+
+    }
+
+    public void setTags(String tags) {
+        this.tags = tags;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String isAvailable() {
+        return available;
+    }
+
+    public void setAvailable(String available) {
+        this.available = available;
+    }
+
+    public String isOnline() {
+        return online;
+    }
+
+    public void setOnline(String online) {
+        this.online = online;
+    }
+
 
     public List<Device> getData(){
         return data;
