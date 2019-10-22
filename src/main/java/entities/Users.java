@@ -38,6 +38,10 @@ public class Users implements Serializable {
         this.subscriptionList = new ArrayList<>();
     }
 
+    public Long getId() {
+        return id;
+    }
+
     public void addOwned(Device d){
         this.ownedDevices.add(d);
     }

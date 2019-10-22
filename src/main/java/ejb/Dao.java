@@ -62,6 +62,9 @@ public class Dao {
     public Device getDevice(long id){
         Device device = em.find(Device.class, id);
         return device;
-
+    }
+    public Users getUsers(long id){
+        Users users = em.find(Users.class, id);
+        return users;
     }
 }

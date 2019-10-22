@@ -25,7 +25,7 @@ public class Device implements Serializable {
 
     @JsonbTransient
     @XmlTransient
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "users_id")
     private Users user;
 

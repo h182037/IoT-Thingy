@@ -13,10 +13,11 @@
 <h:body onload="#{sessionController.redirectDevices()}#{devicebean.init()}">
 
 <h:form>
-    <h:panelGrid columns="3">
+    <h:panelGrid columns="4">
     <h:commandButton action = "#{sessionController.redirectOwned()}" value = "My Devices" />
     <h:commandButton action = "#{sessionController.redirectDevices()}" value = "Find Devices" />
     <h:commandButton action = "#{sessionController.redirectSubs()}" value = "My Subscriptions" />
+        <h:commandButton action = "#{sessionController.logout()}" value = "Logout" />
     </h:panelGrid>
 </h:form>
 <h:form>
