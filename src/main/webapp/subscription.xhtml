@@ -14,9 +14,21 @@
     <h:panelGrid columns="3">
         <h:commandButton action = "Owned" value = "Owned" />
         <h:commandButton action = "findDevice" value = "findDevice" />
-        <h:commandButton action = "subrcription" value = "subrcription" />
+        <h:commandButton action = "subscription" value = "subscription" />
     </h:panelGrid>
 </h:form>
+<h:outputText> value= "Device                              Description</h:outputText>
+<h:panelGrid columns="2">
+    <h:selectOneListbox id="list" size="10"
+                        value="#{devicebean.text}"
+                        valueChangeListener="#{devicebean.valueChanged}"
+                        onchange="submit()">
+        <f:selectItems value="#{devicebean.data}"/>
+    </h:selectOneListbox>
+
+    <h:outputText value="#{devicebean.description}" style="display:block;width:135px"/>
+
+</h:panelGrid>
 </body>
 
 </html>

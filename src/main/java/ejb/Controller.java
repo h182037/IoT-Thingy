@@ -9,23 +9,17 @@ import java.util.List;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.event.ValueChangeEvent;
 import javax.inject.Named;
 import javax.jms.JMSException;
 import javax.naming.NamingException;
-/**
- * 
- * @author Alejandro Rodriguez
- * Dat250 course
- *
- *   Tweet Controller class for the management of tweets
- */
+
 @Named(value = "controller")
 @RequestScoped
 public class Controller implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	// Injected DAO EJB:
 	@EJB
 	private Dao dao;
 
@@ -35,14 +29,14 @@ public class Controller implements Serializable {
 	private Subscription sub;
 
 
-	public List<Device> getDevices() {
-		List<Device> reverseDeviceList = new ArrayList<Device>();
-		reverseDeviceList.addAll(this.dao.getAllDevices());
+	public List<Device> getReverseDeviceList() {
+        List<Device> reverseDeviceList = new ArrayList<Device>();
+        reverseDeviceList.addAll(this.dao.getAllDevices());
 		Collections.reverse(reverseDeviceList);
 		return reverseDeviceList;
 	}
 
-	public void storeUser(Users u) throws NamingException {
+    public void storeUser(Users u) throws NamingException {
 	    dao.persistUser(u);
     }
 
@@ -55,19 +49,16 @@ public class Controller implements Serializable {
         device = new Device();
         device.setName("regn");
         device.setUrl("www.here.com");
-        device.setUsers(users);
+       // device.setUsers(users);
         device.setOnline(false);
         device.setAvailable(false);
         device.setTags("nedbor, vatn, klima");
 
         sub = new Subscription();
-        sub.setSubscribed(device);
-        sub.setSubscriber(users);
         sub.setVerified(false);
 
         feedback = new Feedback();
-        feedback.setAuthor(users);
-        feedback.setTarget(device);
+        feedback.setAuthor(users.getUsername());
         feedback.setText("This rain is ruining my weekend");
 
 

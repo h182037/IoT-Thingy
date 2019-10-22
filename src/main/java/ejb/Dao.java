@@ -13,13 +13,6 @@ import javax.naming.NamingException;
 import javax.persistence.*;
 import javax.xml.registry.infomodel.User;
 
-/**
- * 
- * @author Alejandro Rodriguez
- * Dat250 course
- *
- *Data Access Object connecting the Database with the business logic
- */
 
 @Stateless
 public class Dao {
@@ -31,6 +24,9 @@ public class Dao {
     // Stores a new tweet:
     public void persistUser(Users users) throws NamingException{
         em.persist(users);
+    }
+
+    public Dao(){
     }
     public void updateUser(Users u){
         em.merge(u);

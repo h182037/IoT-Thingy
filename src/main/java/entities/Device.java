@@ -13,7 +13,6 @@ import java.util.List;
 public class Device implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    //Create elements ids automatically, incremented 1 by 1
     @TableGenerator(
             name = "yourTableGenerator",
             allocationSize = 1,
@@ -26,14 +25,14 @@ public class Device implements Serializable {
 
     private String url;
 
-    @ManyToOne
-    @JoinColumn(name="owner")
-    private Users users;
+    private String description;
 
-    @OneToMany(mappedBy = "subscribed", cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @JoinColumn(name="subscription_id")
     private List<Subscription> subscriptionList;
 
-    @OneToMany(mappedBy = "target", cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @JoinColumn(name = "feedback_id")
     private List<Feedback> feedbackList;
 
     private String tags;
@@ -65,13 +64,6 @@ public class Device implements Serializable {
         this.feedbackList = feedbackList;
     }
 
-    public Users getUsers() {
-        return users;
-    }
-
-    public void setUsers(Users owner) {
-        this.users = owner;
-    }
 
     public List<Subscription> getSubscriptionList() {
         return subscriptionList;
@@ -116,31 +108,40 @@ public class Device implements Serializable {
     public void setUrl(String url) {
         this.url = url;
     }
-/*
-    public List<Tag> getTags() {
-        return tags;
+
+    public String getDescription() {
+        return description;
     }
 
-    public void setTags(List<Tag> tags) {
-        this.tags = tags;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public List<Feedback> getFeedback() {
-        return feedback;
-    }
+    /*
+            public List<Tag> getTags() {
+                return tags;
+            }
 
-    public void setFeedback(List<Feedback> feedback) {
-        this.feedback = feedback;
-    }
+            public void setTags(List<Tag> tags) {
+                this.tags = tags;
+            }
 
-    public Users getOwner() {
-        return owner;
-    }
+            public List<Feedback> getFeedback() {
+                return feedback;
+            }
 
-    public void setOwner(Users owner) {
-        this.owner = owner;
-    }
-*/
+            public void setFeedback(List<Feedback> feedback) {
+                this.feedback = feedback;
+            }
+
+            public Users getOwner() {
+                return owner;
+            }
+
+            public void setOwner(Users owner) {
+                this.owner = owner;
+            }
+        */
     public boolean isOnline() {
         return online;
     }
@@ -156,4 +157,10 @@ public class Device implements Serializable {
     public void setAvailable(boolean available) {
         this.available = available;
     }
+
+    @Override
+    public String toString() {
+        return this.name;
+    }
+
 }

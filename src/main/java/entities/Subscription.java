@@ -12,44 +12,20 @@ import java.io.Serializable;
 public class Subscription implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    //Create elements ids automatically, incremented 1 by 1
     @TableGenerator(
             name = "yourTableGenerator",
             allocationSize = 1,
             initialValue = 1)
+
     @Id
     @GeneratedValue(strategy=GenerationType.TABLE,generator="yourTableGenerator")
     private Long id;
-
-    @ManyToOne
-    @JoinColumn(name="subscriber")
-    private Users subscriber;
-
-    @ManyToOne
-    @JoinColumn(name="device")
-    private Device subscribed;
 
     private boolean verified;
 
     public static final String FIND_ALL = "Users.findAll";
 
     public Subscription() {
-    }
-
-    public Users getSubscriber() {
-        return subscriber;
-    }
-
-    public void setSubscriber(Users subscriber) {
-        this.subscriber = subscriber;
-    }
-
-    public Device getSubscribed() {
-        return subscribed;
-    }
-
-    public void setSubscribed(Device subscribed) {
-        this.subscribed = subscribed;
     }
 
     public static long getSerialVersionUID() {

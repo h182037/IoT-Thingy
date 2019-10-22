@@ -11,7 +11,6 @@ import java.io.Serializable;
 public class Feedback implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    //Create elements ids automatically, incremented 1 by 1
     @TableGenerator(
             name = "yourTableGenerator",
             allocationSize = 1,
@@ -22,34 +21,22 @@ public class Feedback implements Serializable {
 
     private String text;
 
-    @ManyToOne
-    @JoinColumn(name="users")
-    private Users author;
+    private String author;
 
-    @ManyToOne
-    @JoinColumn(name="device")
-    private Device target;
 
     public static final String FIND_ALL = "Users.findAll";
 
     public Feedback() {
     }
 
-    public Users getAuthor() {
+    public String getAuthor() {
         return author;
     }
 
-    public void setAuthor(Users author) {
+    public void setAuthor(String author) {
         this.author = author;
     }
 
-    public Device getTarget() {
-        return target;
-    }
-
-    public void setTarget(Device target) {
-        this.target = target;
-    }
 
     public Long getId() {
         return id;

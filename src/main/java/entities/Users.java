@@ -13,7 +13,6 @@ import java.util.List;
 public class Users implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    //Create elements ids automatically, incremented 1 by 1
     @TableGenerator(
             name = "yourTableGenerator",
             allocationSize = 1,
@@ -22,11 +21,13 @@ public class Users implements Serializable {
     @GeneratedValue(strategy=GenerationType.TABLE,generator="yourTableGenerator")
     private Long id;
 
-    @OneToMany(mappedBy = "subscriber", cascade = CascadeType.ALL)
-    private List<Subscription> subscriptionList;
-
-    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @JoinColumn(name="device_id")
     private List<Device> ownedDevices;
+
+    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @JoinColumn(name="subscription_id")
+    private List<Subscription> subscriptionList;
 
     private String username;
 
