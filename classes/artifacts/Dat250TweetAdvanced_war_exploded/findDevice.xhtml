@@ -25,6 +25,7 @@
     <h:selectOneListbox id="list" size="10"
                         value="#{devicebean.text}"
                         valueChangeListener="#{devicebean.valueChanged}"
+
                         onchange="submit()">
         <f:selectItems value="#{devicebean.data}"/>
     </h:selectOneListbox>
@@ -35,9 +36,26 @@
         <p><h:outputText id="owner" value="#{devicebean.user}"/></p>
         <p><h:outputText id="online" value="#{devicebean.online}"/></p>
         <p><h:outputText id="available" value="#{devicebean.available}"/></p>
+        <p><h:outputText id="feedback2" value="#{feedbackbean.feed}"/>></p>
+        <p><h:outputText id="feedbackAuthor2" value="#{feedbackbean.user}"/>></p>
     </div>
 
 </h:form>
+    <h:form>
+        <h3>Devices</h3>
+        <h:selectOneListbox id="feedlist" size="10"
+                            value="#{feedbackbean.text}"
+                            valueChangeListener="#{feedbackbean.valueChanged}"
+                            onchange="submit()">
+            <f:selectItems value="#{feedbackbean.data}"/>
+        </h:selectOneListbox>
+        <div>
+            <p><h:outputText id="feedback" value="#{feedbackbean.feed}"/>></p>
+            <p><h:outputText id="feedbackAuthor" value="#{feedbackbean.user}"/>></p>
+        </div>
+
+    </h:form>
+
 
 </h:body>
 

@@ -67,4 +67,10 @@ public class Dao {
         Users users = em.find(Users.class, id);
         return users;
     }
+    public List<Feedback> getAllFeedbacks() {
+        Query query = em.createNamedQuery(Feedback.FIND_ALL);
+        List<Feedback> feedback;
+        feedback = query.getResultList();
+        return feedback;
+    }
 }
