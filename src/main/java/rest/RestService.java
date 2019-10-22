@@ -12,6 +12,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.xml.registry.infomodel.User;
 import java.util.ArrayList;
@@ -32,21 +33,23 @@ public class RestService {
         Collections.reverse(devices);
         return Response.ok(devices).build();
     }
+
+    @GET
+    @Path("/{id}")
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public Response getDeviceById(@PathParam("id") String id) {
+        long longid = 0;
+        Device device = null;
+        try{
+            longid = Integer.parseInt(id);
+            device = this.dao.getDevice(longid);
+        }catch(NumberFormatException ex){}
+
+        if (device == null)
+            throw new NotFoundException();
+        return Response.ok(device).build();
+    }
     /*
-
-        @GET
-        @Path("/{id}")
-        public Response getDeviceById(@PathParam("id") String id) {
-            long idInt = 0;
-            try{
-                idInt = Integer.parseInt(id);
-            }catch(NumberFormatException ex){}
-
-            Device device = em.find(Device.class, idInt);
-            if (device == null)
-                throw new NotFoundException();
-            return Response.ok(device).build();
-        }
         @POST
         @Path("/{id}/registrations")
         public Response getDeviceRegistrations(@PathParam("id") String id){

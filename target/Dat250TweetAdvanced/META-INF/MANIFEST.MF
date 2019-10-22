@@ -1,7 +1,11 @@
 Manifest-Version: 1.0
+Built-By: ommid
 Created-By: IntelliJ IDEA
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 Built-By: Atle
+>>>>>>> 109fa14e2317645ac63688a0153494dde26e2438
 Build-Jdk: 1.8.0_221
 =======
 Built-By: sindr
