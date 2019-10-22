@@ -1,6 +1,7 @@
 package ejb;
 
 import entities.Device;
+import entities.Users;
 
 import javax.annotation.ManagedBean;
 import javax.ejb.EJB;
@@ -30,23 +31,105 @@ public class DeviceBean implements Serializable {
     private List<Device> data;
     private String text;
     private String message;
+    private String tags;
+    private String url;
+    private String available;
+    private String online;
     private Device d;
+    private String user;
     private String t;
-    private boolean chosen;
+
     public DeviceBean(){
+        d = new Device();
+        d.setName("None");
+        d.setTags("Nothing");
+        d.setUrl("https://localnope:0000");
+        d.setOnline(false);
+        d.setAvailable(false);
+        Users u = new Users();
+        u.setUsername("No one");
+        d.setUser(u);
     }
 
     public void init(){
         data = new ArrayList<>();
         data.addAll(this.dao.getAllDevices());
-        d = data.get(0);
         setText(d.getName());
-        setMessage(d.getName() + " selected.");
+        setMessage("Name: " + d.getName());
+        setTags("Tags: " + d.getTags());
+        setUrl("URL: " + d.getUrl());
+        setUser("Owner: " + d.getUser().getUsername());
+        if(d.isOnline()){
+            setOnline("Online");
+        }else{
+            setOnline("Offline");
+        }
+        if(d.isAvailable()){
+            setAvailable("Available");
+        }else{
+            setAvailable("Unavailable");
+        }
     }
 
     public void valueChanged(ValueChangeEvent e){
             t = (String) e.getNewValue();
+            for(Device device : data){
+                if(device.getName().equals(t)){
+                    d = device;
+                }
+            }
+            setText(t);
+            setMessage(t + " selected.");
     }
+
+    public String getAvailable() {
+        return available;
+    }
+
+    public String getOnline() {
+        return online;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public String getTags() {
+        return tags;
+    }
+
+    public void setTags(String tags) {
+        this.tags = tags;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String isAvailable() {
+        return available;
+    }
+
+    public void setAvailable(String available) {
+        this.available = available;
+    }
+
+    public String isOnline() {
+        return online;
+    }
+
+    public void setOnline(String online) {
+        this.online = online;
+    }
+
 
     public List<Device> getData(){
         return data;

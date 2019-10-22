@@ -43,11 +43,11 @@ public class Controller implements Serializable {
 
     public void wakeUpUser() throws JMSException, NamingException {
         users = new Users();
-        users.setUsername("Superbad");
-        users.setPassword("0x0deadbeefsman");
+        users.setUsername("Badman");
+        users.setPassword("0x0deadbeefaamn");
 
         device = new Device();
-        device.setName("varme");
+        device.setName("fucking freezing");
         device.setUrl("www.there.com");
         device.setUser(users);
         device.setOnline(false);
