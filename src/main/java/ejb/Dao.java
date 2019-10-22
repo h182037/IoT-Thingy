@@ -49,4 +49,10 @@ public class Dao {
         devices = query.getResultList();
         return devices;
     }
+
+    public Device getDevice(long id){
+        Device device = em.find(Device.class, id);
+        return device;
+
+    }
 }

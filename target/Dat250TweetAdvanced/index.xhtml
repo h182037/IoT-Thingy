@@ -19,13 +19,14 @@
                             onchange="submit()">
             <f:selectItems value="#{devicebean.data}"/>
         </h:selectOneListbox>
-        <p><h:outputText id="name" value="#{devicebean.message}"/></p>
-        <p><h:outputText id="tags" value="#{devicebean.tags}"/></p>
-        <p><h:outputText id="url" value="#{devicebean.url}"/></p>
-        <p><h:outputText id="owner" value="#{devicebean.user}"/></p>
-        <p><h:outputText id="online" value="#{devicebean.online}"/></p>
-        <p><h:outputText id="available" value="#{devicebean.available}"/></p>
-
+        <div>
+            <p><h:outputText id="name" value="#{devicebean.message}"/></p>
+            <p><h:outputText id="tags" value="#{devicebean.tags}"/></p>
+            <p><h:outputText id="url" value="#{devicebean.url}"/></p>
+            <p><h:outputText id="owner" value="#{devicebean.user}"/></p>
+            <p><h:outputText id="online" value="#{devicebean.online}"/></p>
+            <p><h:outputText id="available" value="#{devicebean.available}"/></p>
+        </div>
 
     </h:form>
 </div>
