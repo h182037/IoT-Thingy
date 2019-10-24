@@ -9,7 +9,7 @@
     <title>Owned</title>
     <h:outputStylesheet library="css" name="style.css"/>
 </h:head>
-<h:body onload="#{sessionController.redirectOwned()}#{mydevicebean.init()}#{feedbackbean.init()}">
+<h:body onload="#{sessionController.redirectOwned()}#{mydevicebean.init()}#{feedbackbean.init()}#{subbean.init()}">
     <h:form>
         <h:panelGrid columns="4">
             <h:commandButton action = "#{sessionController.redirectOwned()}" value = "My Devices" />
@@ -53,7 +53,25 @@
         <p><h:outputText id="feedbackAuthor" value="#{feedbackbean.user}"/></p>
     </div>
 </h:form>
-    </div>
+    <br></br><br></br><br></br><br></br><br></br>
+        <h:form id="subform" styleClass="division">
+            <div id="sublistdiv" class="division">
+                <h3>Subscription</h3>
+                <h:selectOneListbox id="sublist" size="10"
+                                    value="#{subbean.view}"
+                                    valueChangeListener="#{subbean.valueChanged}"
+                                    onchange="submit()">
+                    <f:selectItems value="#{subbean.sublist}"/>
+                </h:selectOneListbox>
+            </div>
+            <div id="subout" class="division">
+                <p><h:outputText id="subscription" value="#{subbean.view}"/></p>
+                <p><h:outputText id="subdevice" value="#{subbean.sub}"/></p>
+                <p><h:outputText id="subver" value="#{subbean.verified}"/></p>
+            </div>
+        </h:form>
+</div>
+
 </h:body>
 
 </html>

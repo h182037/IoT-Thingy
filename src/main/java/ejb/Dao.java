@@ -71,4 +71,10 @@ public class Dao {
         feedback = query.getResultList();
         return feedback;
     }
+    public List<Subscription> getAllSubs() {
+        Query query = em.createNamedQuery(Subscription.FIND_ALL);
+        List<Subscription> subs;
+        subs = query.getResultList();
+        return subs;
+    }
 }
