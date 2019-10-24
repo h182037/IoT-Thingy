@@ -36,6 +36,15 @@ public class DeviceBean implements Serializable {
     private String url;
     private String available;
     private String online;
+
+    public Device getD() {
+        return d;
+    }
+
+    public void setD(Device d) {
+        this.d = d;
+    }
+
     private Device d;
     private String user;
     private String t;

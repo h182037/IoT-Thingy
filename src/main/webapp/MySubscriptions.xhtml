@@ -35,6 +35,20 @@
             <p><h:outputText id="online" value="#{devicebean.online}"/></p>
             <p><h:outputText id="available" value="#{devicebean.available}"/></p>
         </div>
+    </h:form>
+        <h:form>
+
+                <h3>Create Feedback</h3>
+                <h:selectOneListbox id="list2" size="10"
+                                    value="#{devicebean.text}"
+                                    valueChangeListener="#{feedbackbean.valuesChanged}"
+                                    onchange="submit()">
+                    <f:selectItems value="#{devicebean.data}"/>
+                </h:selectOneListbox>
+        <h:outputText value="Feedback for device: " />
+        <h:inputText id="feedback" value="#{feedbackbean.text}"></h:inputText>
+        <br /><br />
+        <h:commandButton action = "#{feedbackbean.createFeedback}" value = "Send feedback" />
 
     </h:form>
 

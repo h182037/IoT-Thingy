@@ -72,4 +72,6 @@ public class Feedback implements Serializable {
         return this.author;
     }
 
+    public void setId(int i) {
+    }
 }
