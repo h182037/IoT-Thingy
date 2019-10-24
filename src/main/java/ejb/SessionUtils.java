@@ -36,4 +36,13 @@ public class SessionUtils {
 		else
 			return null;
 	}
+
+
+	public static String getChosen() {
+		HttpSession session = getSession();
+		if (session != null)
+			return (String) session.getAttribute(Constants.CHOSEN);
+		else
+			return null;
+	}
 }

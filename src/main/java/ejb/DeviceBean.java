@@ -12,6 +12,7 @@ import javax.faces.event.ValueChangeEvent;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import javax.persistence.PersistenceContext;
+import javax.servlet.http.HttpSession;
 import javax.ws.rs.GET;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -75,6 +76,8 @@ public class DeviceBean implements Serializable {
             t = (String) e.getNewValue();
             for(Device device : data){
                 if(device.getName().equals(t)){
+                    HttpSession session = SessionUtils.getSession();
+                    session.setAttribute(Constants.CHOSEN, t);
                     d = device;
                 }
             }

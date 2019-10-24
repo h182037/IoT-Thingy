@@ -40,7 +40,6 @@ public class myDeviceBean implements Serializable {
     private Device d;
     private String user;
     private String t;
-    private String pilot;
     private String name;
 
     public myDeviceBean(){
@@ -86,6 +85,8 @@ public class myDeviceBean implements Serializable {
         t = (String) e.getNewValue();
         for(Device device : data){
             if(device.getName().equals(t)){
+                HttpSession session = SessionUtils.getSession();
+                session.setAttribute(Constants.CHOSEN, t);
                 d = device;
             }
         }

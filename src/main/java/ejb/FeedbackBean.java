@@ -23,6 +23,7 @@ public class FeedbackBean implements Serializable {
         private Dao dao;
 
         private List<Feedback> feedbackList;
+        private List<Feedback> feedbackList2;
         private String view;
         private String feed;
         private Feedback d;
@@ -39,8 +40,14 @@ public class FeedbackBean implements Serializable {
         }
 
     public void init(){
+            feedbackList2 = new ArrayList<>();
             feedbackList = new ArrayList<>();
-            feedbackList.addAll(this.dao.getAllFeedbacks());
+            feedbackList2.addAll(this.dao.getAllFeedbacks());
+            for(Feedback f : feedbackList2){
+                if(f.getTarget().getName().equals(SessionUtils.getChosen())){
+                    feedbackList.add(f);
+                }
+        }
             setView(d.getAuthor());
             setFeed(d.getText());
             setUser("Author: " + d.getAuthor());

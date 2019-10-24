@@ -7,9 +7,11 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://primefaces.org/ui ">
-<head>
+<h:head>
     <title>Find Devices</title>
-</head>
+    <h:outputStylesheet library="css" name="style.css"/>
+
+</h:head>
 <h:body onload="#{sessionController.redirectDevices()}#{devicebean.init()}#{feedbackbean.init()}">
 
 <h:form>
@@ -20,15 +22,20 @@
         <h:commandButton action = "#{sessionController.logout()}" value = "Logout" />
     </h:panelGrid>
 </h:form>
-<h:form>
-    <h3>Devices</h3>
+    <div id="fullpage" class="division">
+        <h:form id="deviceform" styleClass="division">
+            <div id="devicelist" class="division">
+
+            <h3>Devices</h3>
     <h:selectOneListbox id="list" size="10"
                         value="#{devicebean.text}"
                         valueChangeListener="#{devicebean.valueChanged}"
                         onchange="submit()">
         <f:selectItems value="#{devicebean.data}"/>
     </h:selectOneListbox>
-    <div>
+            </div>
+
+            <div id="deviceout" class="division">
         <p><h:outputText id="name" value="#{devicebean.message}"/></p>
         <p><h:outputText id="tags" value="#{devicebean.tags}"/></p>
         <p><h:outputText id="url" value="#{devicebean.url}"/></p>
@@ -38,22 +45,24 @@
     </div>
 
 </h:form>
-    <h:form>
-        <h3>Feedback</h3>
+        <h:form id="feedform" styleClass="division">
+            <div id="feedlistdiv" class="division">
+            <h3>Feedback</h3>
         <h:selectOneListbox id="feedlist" size="10"
                             value="#{feedbackbean.view}"
                             valueChangeListener="#{feedbackbean.valueChanged}"
                             onchange="submit()">
             <f:selectItems value="#{feedbackbean.data}"/>
         </h:selectOneListbox>
-        <div>
+            </div>
+
+            <div id="feedout" class="division">
             <p><h:outputText id="feedback" value="#{feedbackbean.feed}"/></p>
             <p><h:outputText id="feedbackAuthor" value="#{feedbackbean.user}"/></p>
         </div>
 
     </h:form>
-
-
+    </div>
 </h:body>
 
 </html>

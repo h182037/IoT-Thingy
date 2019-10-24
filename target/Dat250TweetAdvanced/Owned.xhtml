@@ -8,8 +8,8 @@
 <head>
     <title>Owned</title>
 </head>
-<h:body onload="#{sessionController.redirectOwned()}#{mydevicebean.init()}">
-
+<h:body onload="#{sessionController.redirectOwned()}#{mydevicebean.init()}#{feedbackbean.init()}">
+    <h:outputStylesheet library="css" name="style.css"/>
     <h:form>
         <h:panelGrid columns="4">
             <h:commandButton action = "#{sessionController.redirectOwned()}" value = "My Devices" />
@@ -18,7 +18,8 @@
             <h:commandButton action = "#{sessionController.logout()}" value = "Logout" />
         </h:panelGrid>
     </h:form>
-<h:form>
+    <div id="fullpage" class="division">
+    <h:form id="deviceform" styleClass="division">
 <h2>Devices</h2>
     <h:selectOneListbox id="list" size="10"
                         value="#{mydevicebean.text}"
@@ -26,15 +27,25 @@
                         onchange="submit()">
         <f:selectItems value="#{mydevicebean.data}"/>
     </h:selectOneListbox>
-    <div>
         <p><h:outputText id="name" value="#{mydevicebean.message}"/></p>
         <p><h:outputText id="tags" value="#{mydevicebean.tags}"/></p>
         <p><h:outputText id="url" value="#{mydevicebean.url}"/></p>
         <p><h:outputText id="owner" value="#{mydevicebean.user}"/></p>
         <p><h:outputText id="online" value="#{mydevicebean.online}"/></p>
         <p><h:outputText id="available" value="#{mydevicebean.available}"/></p>
-    </div>
 </h:form>
+<h:form id="feedform" styleClass="division">
+    <h3>Feedback</h3>
+    <h:selectOneListbox id="feedlist" size="10"
+                        value="#{feedbackbean.view}"
+                        valueChangeListener="#{feedbackbean.valueChanged}"
+                        onchange="submit()">
+        <f:selectItems value="#{feedbackbean.data}"/>
+    </h:selectOneListbox>
+        <p><h:outputText id="feedback" value="#{feedbackbean.feed}"/></p>
+        <p><h:outputText id="feedbackAuthor" value="#{feedbackbean.user}"/></p>
+</h:form>
+    </div>
 </h:body>
 
 </html>
