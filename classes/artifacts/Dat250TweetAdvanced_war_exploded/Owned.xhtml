@@ -38,6 +38,7 @@
         <p><h:outputText id="available" value="#{mydevicebean.available}"/></p>
         </div>
         <h:commandButton action = "#{sessionController.redirectCD()}" value = "New Device" />
+        <h:commandButton action = "#{mydevicebean.deleteDevice()}" value = "Delete device" />
 
     </h:form>
 <h:form id="feedform" styleClass="division">
@@ -70,6 +71,8 @@
                 <p><h:outputText id="subscription" value="#{subbean.view}"/></p>
                 <p><h:outputText id="subdevice" value="#{subbean.sub}"/></p>
                 <p><h:outputText id="subver" value="#{subbean.verified}"/></p>
+                <h:commandButton action = "#{subbean.allow()}" value = "Allow" />
+                <h:commandButton action = "#{subbean.deny()}" value = "Deny" />
             </div>
         </h:form>
 </div>

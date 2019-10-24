@@ -67,10 +67,10 @@ public class mySubBean implements Serializable {
         for(Subscription s : sublist){
             if(s.getUser().getUsername().equals(t)){
                 d = s;
+                return;
             }
         }
     }
-
     public String getUser() {
         return user;
     }

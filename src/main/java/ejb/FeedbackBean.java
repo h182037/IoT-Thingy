@@ -78,6 +78,7 @@ public class FeedbackBean implements Serializable {
         for(Feedback feedback : feedbackList){
             if(feedback.getAuthor().equals(te)){
                 d = feedback;
+                return;
             }
         }
     }
@@ -114,6 +115,7 @@ public class FeedbackBean implements Serializable {
         this.dao.persistFeedback(feedback);
 
         }
+
 
 
     public String getUser() {

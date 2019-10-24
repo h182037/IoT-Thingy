@@ -12,10 +12,10 @@
 <h:body onload="#{sessionController.redirectSubs()}#{devicebean.init()}#{mysubbean.init()}">
     <h:form>
         <h:panelGrid columns="4">
-            <h:commandButton action = "#{sessionController.redirectOwned()}" value = "My Devices" />
-            <h:commandButton action = "#{sessionController.redirectDevices()}" value = "Find Devices" />
-            <h:commandButton action = "#{sessionController.redirectSubs()}" value = "My Subscriptions" />
-            <h:commandButton action = "#{sessionController.logout()}" value = "Logout" />
+            <h:commandButton styleClass="blue" action = "#{sessionController.redirectOwned()}" value = "My Devices" />
+            <h:commandButton styleClass="blue" action = "#{sessionController.redirectDevices()}" value = "Find Devices" />
+            <h:commandButton styleClass="blue" action = "#{sessionController.redirectSubs()}" value = "My Subscriptions" />
+            <h:commandButton styleClass="blue" action = "#{sessionController.logout()}" value = "Logout" />
 
         </h:panelGrid>
     </h:form>
@@ -52,7 +52,6 @@
 
 
     </h:form>
-
 </h:body>
 
 </html>

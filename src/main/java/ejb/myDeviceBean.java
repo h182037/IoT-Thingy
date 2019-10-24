@@ -11,6 +11,8 @@ import javax.enterprise.context.SessionScoped;
 import javax.faces.event.ValueChangeEvent;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
+import javax.jms.JMSException;
+import javax.naming.NamingException;
 import javax.persistence.PersistenceContext;
 import javax.servlet.http.HttpSession;
 import javax.ws.rs.GET;
@@ -81,6 +83,10 @@ public class myDeviceBean implements Serializable {
         }
     }
 
+    public void deleteDevice() throws JMSException, NamingException {
+        this.dao.deleteDevice(d);
+    }
+
     public void valueChanged(ValueChangeEvent e){
         t = (String) e.getNewValue();
         for(Device device : data){
@@ -88,6 +94,7 @@ public class myDeviceBean implements Serializable {
                 HttpSession session = SessionUtils.getSession();
                 session.setAttribute(Constants.CHOSEN, t);
                 d = device;
+                return;
             }
         }
     }

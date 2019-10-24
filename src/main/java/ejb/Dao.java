@@ -5,6 +5,7 @@ import entities.Feedback;
 import entities.Subscription;
 import entities.Users;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -50,8 +51,18 @@ public class Dao {
         em.merge(one);
     }
 
+    public void updateDevice(Device d){
+        Device dev = em.find(Device.class, d.getId());
+        em.merge(dev);
+    }
+
     public void persistDevice(Device device) throws NamingException, JMSException{
         em.persist(device);
+    }
+
+    public void deleteDevice(Device device) throws NamingException, JMSException{
+        deleteSubsAndFeedback(device);
+        em.remove(em.merge(device));
     }
 
     public void persistSubscription(Subscription subscription) throws NamingException, JMSException{
@@ -83,6 +94,22 @@ public class Dao {
         Users users = em.find(Users.class, id);
         return users;
     }
+    public void allowSub(Subscription s){
+        List<Subscription> list = new ArrayList<>();
+        list = getAllSubs();
+        for(Subscription ss : list){
+            if(ss.getId().equals(s.getId())){
+                ss.setVerified(true);
+                em.merge(ss);
+            }
+        }
+
+    }
+    public void denySub(Subscription s){
+        Subscription sub = em.find(Subscription.class, s.getId());
+        sub.setVerified(false);
+        em.merge(sub);
+    }
     public List<Feedback> getAllFeedbacks() {
         Query query = em.createNamedQuery(Feedback.FIND_ALL);
         List<Feedback> feedback;
@@ -94,5 +121,17 @@ public class Dao {
         List<Subscription> subs;
         subs = query.getResultList();
         return subs;
+    }
+
+    private void deleteSubsAndFeedback(Device device){
+        List<Subscription> subs = device.getSubscriptionList();
+        List<Feedback> feedbacks = device.getFeedbackList();
+
+        for(Subscription s : subs){
+            em.remove(em.merge(s));
+        }
+        for(Feedback f : feedbacks){
+            em.remove(em.merge(f));
+        }
     }
 }
