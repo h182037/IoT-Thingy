@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <glassfish-web-app>
 
+<<<<<<< HEAD
     <target name="create-forest-realm" depends="create-forest-resource"
             description="create JDBC realm">
         <antcall target="create-jdbc-realm">
@@ -23,4 +24,6 @@
         <form-error-page>/login.xhtml</form-error-page>
     </form-login-config>
 </login-config>
+=======
+>>>>>>> 000dcc8b67fc69199bd32a2967767b65b55f3d2f
 </glassfish-web-app>

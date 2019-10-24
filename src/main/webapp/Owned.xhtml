@@ -37,7 +37,9 @@
         <p><h:outputText id="online" value="#{mydevicebean.online}"/></p>
         <p><h:outputText id="available" value="#{mydevicebean.available}"/></p>
         </div>
-</h:form>
+        <h:commandButton action = "#{sessionController.redirectCD()}" value = "New Device" />
+
+    </h:form>
 <h:form id="feedform" styleClass="division">
     <div id="feedlistdiv" class="division">
     <h3>Feedback</h3>

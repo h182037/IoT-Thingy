@@ -9,7 +9,11 @@
     <title>Owned</title>
     <h:outputStylesheet library="css" name="style.css"/>
 </h:head>
+<<<<<<< HEAD
 <h:body onload="#{sessionController.redirectOwned()}#{mydevicebean.init()}#{feedbackbean.init()}#{subbean.init()}">
+=======
+<h:body onload="#{sessionController.redirectOwned()}#{mydevicebean.init()}#{feedbackbean.init()}">
+>>>>>>> 000dcc8b67fc69199bd32a2967767b65b55f3d2f
     <h:form>
         <h:panelGrid columns="4">
             <h:commandButton action = "#{sessionController.redirectOwned()}" value = "My Devices" />

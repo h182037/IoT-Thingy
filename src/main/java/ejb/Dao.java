@@ -29,7 +29,8 @@ public class Dao {
     public Dao(){
     }
     public void updateUser(Users u){
-        em.merge(u);
+        Users one = em.find(Users.class, u.getId());
+        em.merge(one);
     }
 
     public void persistDevice(Device device) throws NamingException, JMSException{

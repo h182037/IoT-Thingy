@@ -26,6 +26,55 @@ public class SessionController implements Serializable {
 
 	private String username;
 
+	public String getDeviceName() {
+		return deviceName;
+	}
+
+	public void setDeviceName(String deviceName) {
+		this.deviceName = deviceName;
+	}
+
+	private String deviceName;
+	private boolean available;
+	private boolean online;
+	private String tags;
+	private String url;
+
+	public boolean isAvailable() {
+		return available;
+	}
+
+	public void setAvailable(boolean available) {
+		this.available = available;
+	}
+
+	public boolean isOnline() {
+		return online;
+	}
+
+	public void setOnline(boolean online) {
+		this.online = online;
+	}
+
+	public String getTags() {
+		return tags;
+	}
+
+	public void setTags(String tags) {
+		this.tags = tags;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+
+
+
 	public String getPassword() {
 		return password;
 	}
@@ -57,13 +106,21 @@ public class SessionController implements Serializable {
 		session.invalidate();
 		return Constants.LOGIN;
 	}
-	
+
 	public String redirectOwned() throws IOException {
 		HttpSession session = SessionUtils.getSession();
 		if (session.getAttribute(Constants.USERNAME)==null) {
 			SessionUtils.getResponse().sendRedirect(Constants.LOGIN + ".xhtml");
 		}
 		return Constants.OWNED;
+	}
+
+	public String redirectCD() throws IOException {
+		HttpSession session = SessionUtils.getSession();
+		if (session.getAttribute(Constants.USERNAME)==null) {
+			SessionUtils.getResponse().sendRedirect(Constants.LOGIN + ".xhtml");
+		}
+		return Constants.CD;
 	}
 
 	public String redirectSubs() throws IOException {
@@ -93,6 +150,8 @@ public class SessionController implements Serializable {
 		}
 		return validated;
 	}
+
+
 
 
 
