@@ -42,7 +42,7 @@ public class Subscription implements Serializable {
 
     private boolean verified;
 
-    public static final String FIND_ALL = "Users.findAll";
+    public static final String FIND_ALL = "Subscription.findAll";
 
     public Subscription() {
     }
@@ -69,6 +69,11 @@ public class Subscription implements Serializable {
 
     public boolean isVerified() {
         return verified;
+    }
+
+    @Override
+    public String toString(){
+        return this.getUser().getUsername();
     }
 
     public void setVerified(boolean verified) {

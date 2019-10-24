@@ -115,6 +115,14 @@ public class SessionController implements Serializable {
 		return Constants.OWNED;
 	}
 
+	public String redirectCD() throws IOException {
+		HttpSession session = SessionUtils.getSession();
+		if (session.getAttribute(Constants.USERNAME)==null) {
+			SessionUtils.getResponse().sendRedirect(Constants.LOGIN + ".xhtml");
+		}
+		return Constants.CD;
+	}
+
 	public String redirectSubs() throws IOException {
 		HttpSession session = SessionUtils.getSession();
 		if (session.getAttribute(Constants.USERNAME)==null) {

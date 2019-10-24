@@ -9,6 +9,8 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import javax.jms.JMSException;
 import javax.naming.NamingException;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 import ejb.SessionController;
@@ -49,7 +51,7 @@ import ejb.SessionController;
         }
 
 
-            public void CreateDevice() throws JMSException, NamingException {
+            public String CreateDevice() throws JMSException, NamingException, IOException {
                 String name = SessionUtils.getUserName();
                 List<Users> usersList = this.dao.getAllUsers();
 
@@ -68,7 +70,11 @@ import ejb.SessionController;
                 device.setUrl(url);
                 device.setUser(dis);
                 this.dao.persistDevice(device);
-            }
+                HttpSession session = SessionUtils.getSession();
+                if (session.getAttribute(Constants.USERNAME)==null) {
+                    SessionUtils.getResponse().sendRedirect(Constants.LOGIN + ".xhtml");
+                }
+                return Constants.OWNED;            }
 
         public boolean getAvailable() {
             return available;

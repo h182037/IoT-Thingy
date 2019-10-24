@@ -33,6 +33,9 @@
     <welcome-file>login.xhtml</welcome-file>
   </welcome-file-list>
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 000dcc8b67fc69199bd32a2967767b65b55f3d2f
 
 </web-app>

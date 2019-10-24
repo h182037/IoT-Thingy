@@ -1,3 +1,19 @@
+<<<<<<< HEAD
+C:\Users\Sindre\IdeaProjects\dat250public-master\Dat250TweetAdvanced\src\main\java\ejb\SessionController.java
+C:\Users\Sindre\IdeaProjects\dat250public-master\Dat250TweetAdvanced\src\main\java\rest\RestService.java
+C:\Users\Sindre\IdeaProjects\dat250public-master\Dat250TweetAdvanced\src\main\java\ejb\Controller.java
+C:\Users\Sindre\IdeaProjects\dat250public-master\Dat250TweetAdvanced\src\main\java\ejb\Constants.java
+C:\Users\Sindre\IdeaProjects\dat250public-master\Dat250TweetAdvanced\src\main\java\entities\Device.java
+C:\Users\Sindre\IdeaProjects\dat250public-master\Dat250TweetAdvanced\src\main\java\entities\Feedback.java
+C:\Users\Sindre\IdeaProjects\dat250public-master\Dat250TweetAdvanced\src\main\java\ejb\SessionUtils.java
+C:\Users\Sindre\IdeaProjects\dat250public-master\Dat250TweetAdvanced\src\main\java\ejb\DeviceBean.java
+C:\Users\Sindre\IdeaProjects\dat250public-master\Dat250TweetAdvanced\src\main\java\entities\Subscription.java
+C:\Users\Sindre\IdeaProjects\dat250public-master\Dat250TweetAdvanced\src\main\java\ejb\subBean.java
+C:\Users\Sindre\IdeaProjects\dat250public-master\Dat250TweetAdvanced\src\main\java\ejb\Dao.java
+C:\Users\Sindre\IdeaProjects\dat250public-master\Dat250TweetAdvanced\src\main\java\ejb\FeedbackBean.java
+C:\Users\Sindre\IdeaProjects\dat250public-master\Dat250TweetAdvanced\src\main\java\ejb\myDeviceBean.java
+C:\Users\Sindre\IdeaProjects\dat250public-master\Dat250TweetAdvanced\src\main\java\entities\Users.java
+=======
 C:\Skule\DAT250\IoT-Thingy\src\main\java\entities\Device.java
 C:\Skule\DAT250\IoT-Thingy\src\main\java\ejb\DeviceBean.java
 C:\Skule\DAT250\IoT-Thingy\src\main\java\ejb\Constants.java
@@ -12,3 +28,4 @@ C:\Skule\DAT250\IoT-Thingy\src\main\java\entities\Subscription.java
 C:\Skule\DAT250\IoT-Thingy\src\main\java\ejb\CreateDeviceBean.java
 C:\Skule\DAT250\IoT-Thingy\src\main\java\ejb\Dao.java
 C:\Skule\DAT250\IoT-Thingy\src\main\java\entities\Users.java
+>>>>>>> 000dcc8b67fc69199bd32a2967767b65b55f3d2f

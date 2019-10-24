@@ -1,5 +1,13 @@
 .division{
-	width: 50%;
-	height: 100px;
+	width: 45%;
+	height: 30%;
 	float: left;
+	display: block;
+	position: relative;
+}
+.bottom{
+	width: 50%;
+	float: left;
+	display: block;
+	position: relative;
 }

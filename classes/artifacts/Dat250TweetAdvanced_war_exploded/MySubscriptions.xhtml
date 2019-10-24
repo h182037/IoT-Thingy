@@ -9,7 +9,7 @@
     <title>My Subscriptions</title>
     <h:outputStylesheet library="css" name="style.css"/>
 </h:head>
-<h:body onload="#{sessionController.redirectSubs()}#{devicebean.init()}">
+<h:body onload="#{sessionController.redirectSubs()}#{devicebean.init()}#{mysubbean.init()}">
     <h:form>
         <h:panelGrid columns="4">
             <h:commandButton action = "#{sessionController.redirectOwned()}" value = "My Devices" />
@@ -19,22 +19,22 @@
 
         </h:panelGrid>
     </h:form>
-    <h:form>
-        <h3>Devices</h3>
-        <h:selectOneListbox id="list" size="10"
-                            value="#{devicebean.text}"
-                            valueChangeListener="#{devicebean.valueChanged}"
-                            onchange="submit()">
-            <f:selectItems value="#{devicebean.data}"/>
-        </h:selectOneListbox>
-        <div>
-            <p><h:outputText id="name" value="#{devicebean.message}"/></p>
-            <p><h:outputText id="tags" value="#{devicebean.tags}"/></p>
-            <p><h:outputText id="url" value="#{devicebean.url}"/></p>
-            <p><h:outputText id="owner" value="#{devicebean.user}"/></p>
-            <p><h:outputText id="online" value="#{devicebean.online}"/></p>
-            <p><h:outputText id="available" value="#{devicebean.available}"/></p>
+    <h:form id="subform" styleClass="division">
+        <div id="sublistdiv" class="division">
+            <h3>Subscription</h3>
+            <h:selectOneListbox id="sublist" size="10"
+                                value="#{mysubbean.view}"
+                                valueChangeListener="#{mysubbean.valueChanged}"
+                                onchange="submit()">
+                <f:selectItems value="#{mysubbean.sublist}"/>
+            </h:selectOneListbox>
         </div>
+        <div id="subout" class="division">
+            <p><h:outputText id="subscription" value="#{mysubbean.view}"/></p>
+            <p><h:outputText id="subdevice" value="#{mysubbean.sub}"/></p>
+            <p><h:outputText id="subver" value="#{mysubbean.verified}"/></p>
+        </div>
+<<<<<<< HEAD
     </h:form>
         <h:form>
 
@@ -50,6 +50,8 @@
         <br /><br />
         <h:commandButton action = "#{feedbackbean.createFeedback}" value = "Send feedback" />
 
+=======
+>>>>>>> 20d6894c0613ca9cb369df508804717d33439705
     </h:form>
 
 </h:body>

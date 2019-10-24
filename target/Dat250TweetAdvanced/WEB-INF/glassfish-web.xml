@@ -1,4 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <glassfish-web-app>
 
+<<<<<<< HEAD
+    <target name="create-forest-realm" depends="create-forest-resource"
+            description="create JDBC realm">
+        <antcall target="create-jdbc-realm">
+            <param name="jdbc.resource.name" value="jdbc/forest" />
+            <param name="jdbc.realm.name" value="jdbcRealm" />
+            <param name="user.table.name" value="USERS.USER" />
+            <param name="user.name.column" value="username" />
+            <param name="password.column" value="password" />
+            <param name="group.table" value="forest.GROUPS" />
+            <param name="group.name.column" value="name" />
+            <param name="assign.groups" value="USERS,ADMIN" />
+            <param name="digest.algorithm" value="MD5" />
+        </antcall>
+    </target>
+    <login-config>
+    <auth-method>FORM</auth-method>
+    <realm-name>jdbcRealm</realm-name>
+    <form-login-config>
+        <form-login-page>/login.xhtml</form-login-page>
+        <form-error-page>/login.xhtml</form-error-page>
+    </form-login-config>
+</login-config>
+=======
+>>>>>>> 000dcc8b67fc69199bd32a2967767b65b55f3d2f
 </glassfish-web-app>

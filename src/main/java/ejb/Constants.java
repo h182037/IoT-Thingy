@@ -7,7 +7,7 @@ public class Constants {
 	
 	public static final String USERID = "userid";
 	
-	public static final String INDEX = "index";
+	public static final String CD = "createDevice";
 
 	public static final String FIND = "findDevice";
 	public static String CHOSEN = "device";
