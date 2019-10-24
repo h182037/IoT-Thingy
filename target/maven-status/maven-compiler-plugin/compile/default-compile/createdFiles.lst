@@ -8,6 +8,7 @@ entities\Subscription.class
 ejb\myDeviceBean.class
 entities\Users.class
 ejb\Dao.class
+ejb\CreateDeviceBean.class
 ejb\DeviceBean.class
 entities\Device.class
 ejb\SessionController.class

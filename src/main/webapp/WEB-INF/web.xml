@@ -33,30 +33,6 @@
     <welcome-file>login.xhtml</welcome-file>
   </welcome-file-list>
 
-  <security-constraint>
-    <web-resource-collection>
-      <web-resource-name>Secure Pages</web-resource-name>
-      <description/>
-      <url-pattern>/findDevice</url-pattern>
-    </web-resource-collection>
-    <auth-constraint>
-      <role-name>ADMIN</role-name>
-    </auth-constraint>
-
-  </security-constraint>
-
-  <security-constraint>
-    <display-name>Constraint1</display-name>
-    <web-resource-collection>
-      <web-resource-name>welcome.xhtml</web-resource-name>
-      <description/>
-      <url-pattern>/.xhtml</url-pattern>
-    </web-resource-collection>
-    <user-data-constraint>
-      <description/>
-      <transport-guarantee>CONFIDENTIAL</transport-guarantee>
-    </user-data-constraint>
-  </security-constraint>
 
 
 </web-app>
