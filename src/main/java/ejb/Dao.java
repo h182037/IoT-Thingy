@@ -38,7 +38,7 @@ public class Dao {
     @JMSConnectionFactory("jms/dat250/ConnectionFactory")
     private JMSContext context;
 
-    @Resource(lookup = "jms/dat250/ConnectionFactory")
+    //@Resource(lookup = "jms/dat250/ConnectionFactory")
     private Topic topic;
 
     public void persist(Device device) throws NamingException, JMSException {
