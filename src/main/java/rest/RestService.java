@@ -20,7 +20,7 @@ import java.util.Collections;
 import java.util.List;
 
 @Path("/devices")
-
+@Stateless
 public class RestService {
 
     @EJB
@@ -36,7 +36,7 @@ public class RestService {
 
     @GET
     @Path("/{id}")
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces("application/json")
     public Response getDeviceById(@PathParam("id") String id) {
         long longid = 0;
         Device device = null;
@@ -49,41 +49,23 @@ public class RestService {
             throw new NotFoundException();
         return Response.ok(device).build();
     }
-    /*
-        @POST
-        @Path("/{id}/registrations")
+        @GET
+        @Path("/{id}/subscriptions")
+        @Produces("application/json")
         public Response getDeviceRegistrations(@PathParam("id") String id){
-            long idInt = 0;
+            long longid = 0;
+            Device device = null;
             try{
-                idInt = Integer.parseInt(id);
+                longid = Integer.parseInt(id);
+                device = this.dao.getDevice(longid);
             }catch(NumberFormatException ex){}
 
-            Device device = em.find(Device.class, idInt);
-            if (device == null)
-                throw new NotFoundException();
+            List<Subscription> subs = device.getSubscriptionList();
+            Collections.reverse(subs);
+            return Response.ok(subs).build();
 
-            TypedQuery<Subscription> query =
-                    em.createNamedQuery("Subscription.findAllVerified", Subscription.class).setParameter("deviceId", device.getId());
-            List<Subscription> registrations = query.getResultList();
-
-
-            return Response.ok(registrations).build();
         }
-    @GET
-    @Path("/{id}/registrations/{rid}")
-    public Response getDeviceRID(@PathParam("id") String id, @PathParam("rid") String rid){
-        long idInt = 0;
-        try{
-            idInt = Integer.parseInt(id);
-        }catch(NumberFormatException ex){}
 
-        Device device = em.find(Device.class, idInt);
-        if (device == null)
-            throw new NotFoundException();
-
-        return Response.ok().build();
-    }
-    */
 
 
 }

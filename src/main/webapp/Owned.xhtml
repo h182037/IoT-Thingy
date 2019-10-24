@@ -38,6 +38,7 @@
         <p><h:outputText id="available" value="#{mydevicebean.available}"/></p>
         </div>
         <h:commandButton action = "#{sessionController.redirectCD()}" value = "New Device" />
+        <h:commandButton action = "#{mydevicebean.deleteDevice()}" value = "Delete device" />
 
     </h:form>
 <h:form id="feedform" styleClass="division">

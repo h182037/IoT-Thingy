@@ -2,15 +2,20 @@ package ejb;
 
 import entities.Device;
 import entities.Feedback;
+import entities.Users;
 
 import javax.annotation.ManagedBean;
 import javax.ejb.EJB;
 import javax.faces.event.ValueChangeEvent;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
+import javax.jms.JMSException;
+import javax.naming.NamingException;
+import javax.servlet.http.HttpSession;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import ejb.DeviceBean;
 
 @ManagedBean
 @Named(value="feedbackbean")
@@ -30,6 +35,19 @@ public class FeedbackBean implements Serializable {
         private String user;
         private String t;
         private Device device;
+        private Users dis;
+    private List<Device> data;
+
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    private String text;
 
         public FeedbackBean(){
             d = new Feedback();
@@ -63,6 +81,39 @@ public class FeedbackBean implements Serializable {
             }
         }
     }
+    public void valuesChanged(ValueChangeEvent e){
+        t = (String) e.getNewValue();
+        data = this.dao.getAllDevices();
+        for(Device d : data){
+            if(d.getName().equals(t)){
+                HttpSession session = SessionUtils.getSession();
+                session.setAttribute(Constants.CHOSEN, t);
+                device = d;
+            }
+        }
+    }
+    public void createFeedback() throws JMSException, NamingException {
+        String name = SessionUtils.getUserName();
+        List<Users> usersList = this.dao.getAllUsers();
+
+        for (Users u : usersList) {
+            if (u.getUsername().equals(name)) {
+                dis = u;
+            }
+
+        }
+
+
+
+        Feedback feedback = new Feedback();
+        feedback.setAuthor(dis.getUsername());
+        feedback.setText(getText());
+        feedback.setTarget(device);
+        feedback.setId(1);
+
+        this.dao.persistFeedback(feedback);
+
+        }
 
 
 
