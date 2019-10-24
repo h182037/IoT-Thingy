@@ -52,6 +52,10 @@ public class Device implements Serializable {
         this.feedbackList = new ArrayList<>();
     }
 
+    public static boolean getTopic() {
+        return true;
+    }
+
     public Users getUser() {
         return user;
     }
