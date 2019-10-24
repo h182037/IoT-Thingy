@@ -36,7 +36,8 @@ public class FeedbackBean implements Serializable {
         private String t;
         private Device device;
         private Users dis;
-    private List<Device> data;
+        private String te;
+    private List<Device> dataDevices;
 
 
     public String getText() {
@@ -73,9 +74,9 @@ public class FeedbackBean implements Serializable {
 
 
     public void valueChanged(ValueChangeEvent e){
-        t = (String) e.getNewValue();
+        te = (String) e.getNewValue();
         for(Feedback feedback : feedbackList){
-            if(feedback.getAuthor().equals(t)){
+            if(feedback.getAuthor().equals(te)){
                 d = feedback;
                 return;
             }
@@ -83,8 +84,8 @@ public class FeedbackBean implements Serializable {
     }
     public void valuesChanged(ValueChangeEvent e){
         t = (String) e.getNewValue();
-        data = this.dao.getAllDevices();
-        for(Device d : data){
+        dataDevices = this.dao.getAllDevices();
+        for(Device d : dataDevices){
             if(d.getName().equals(t)){
                 HttpSession session = SessionUtils.getSession();
                 session.setAttribute(Constants.CHOSEN, t);

@@ -8,8 +8,13 @@ import entities.Users;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.Resource;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
+import javax.jms.JMSConnectionFactory;
+import javax.jms.JMSContext;
 import javax.jms.JMSException;
+import javax.jms.Topic;
 import javax.naming.NamingException;
 import javax.persistence.*;
 import javax.xml.registry.infomodel.User;
@@ -28,6 +33,18 @@ public class Dao {
     }
 
     public Dao(){
+    }
+    @Inject
+    @JMSConnectionFactory("jms/dat250/ConnectionFactory")
+    private JMSContext context;
+
+    //@Resource(lookup = "jms/dat250/ConnectionFactory")
+    private Topic topic;
+
+    public void persist(Device device) throws NamingException, JMSException {
+        em.persist(device);
+
+        context.createProducer().setProperty("topicUser", Device.getTopic()).send(topic, device);
     }
     public void updateUser(Users u){
         Users one = em.find(Users.class, u.getId());
@@ -111,7 +128,12 @@ public class Dao {
         List<Feedback> feedbacks = dev.getFeedbackList();
 
         for(Subscription s : subs){
-            em.remove(s);
+            Subscription sub = em.find(Subscription.class, s.getId());
+            Users u = em.find(Users.class, sub.getUser().getId());
+            u.getOwnedDevices().remove(dev);
+            u.getSubscriptionList().remove(sub);
+            em.merge(u);
+            em.remove(sub);
         }
         for(Feedback f : feedbacks){
             em.remove(f);
