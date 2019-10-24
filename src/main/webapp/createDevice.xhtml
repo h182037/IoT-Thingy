@@ -15,12 +15,11 @@
         <h:inputText id="deviceName" value="#{createdevicebean.deviceName}"></h:inputText>
         <br /><br />
         <h:outputText value="Available: " />
-        <input type="checkbox" name="ckbx1"
-         id="available" value="#{createdevicebean.available}" />
+        <h:selectBooleanCheckbox value="#{createdevicebean.available}" />
         <br /><br />
-        <h:outputText value="Online?: " />
-        <input type="checkbox" name="ckbx1"
-               id="online" value="#{createdevicebean.online}" />
+        <h:outputText value="Online: " />
+        <h:selectBooleanCheckbox value="#{createdevicebean.online}" />
+
         <br /><br />
         <h:outputText value="tags: " />
         <h:inputText id="tags" value="#{createdevicebean.tags}"></h:inputText>
