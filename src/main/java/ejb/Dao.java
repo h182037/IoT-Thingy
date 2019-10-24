@@ -5,6 +5,7 @@ import entities.Feedback;
 import entities.Subscription;
 import entities.Users;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -31,6 +32,11 @@ public class Dao {
     public void updateUser(Users u){
         Users one = em.find(Users.class, u.getId());
         em.merge(one);
+    }
+
+    public void updateDevice(Device d){
+        Device dev = em.find(Device.class, d.getId());
+        em.merge(dev);
     }
 
     public void persistDevice(Device device) throws NamingException, JMSException{
@@ -65,6 +71,22 @@ public class Dao {
     public Users getUsers(long id){
         Users users = em.find(Users.class, id);
         return users;
+    }
+    public void allowSub(Subscription s){
+        List<Subscription> list = new ArrayList<>();
+        list = getAllSubs();
+        for(Subscription ss : list){
+            if(ss.getId().equals(s.getId())){
+                ss.setVerified(true);
+                em.merge(ss);
+            }
+        }
+
+    }
+    public void denySub(Subscription s){
+        Subscription sub = em.find(Subscription.class, s.getId());
+        sub.setVerified(false);
+        em.merge(sub);
     }
     public List<Feedback> getAllFeedbacks() {
         Query query = em.createNamedQuery(Feedback.FIND_ALL);

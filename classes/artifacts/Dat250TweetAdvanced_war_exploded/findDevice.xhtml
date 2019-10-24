@@ -32,6 +32,7 @@
                         valueChangeListener="#{devicebean.valueChanged}"
                         onchange="submit()">
         <f:selectItems value="#{devicebean.data}"/>
+        <h:commandButton action = "#{devicebean.subscribe()}" value = "Subscribe" />
     </h:selectOneListbox>
             </div>
 

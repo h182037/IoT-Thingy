@@ -1,22 +1,19 @@
 package ejb;
 
 import entities.Device;
+import entities.Subscription;
 import entities.Users;
 
 import javax.annotation.ManagedBean;
 import javax.ejb.EJB;
-import javax.ejb.Stateless;
-import javax.enterprise.context.RequestScoped;
-import javax.enterprise.context.SessionScoped;
 import javax.faces.event.ValueChangeEvent;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
-import javax.persistence.PersistenceContext;
+import javax.jms.JMSException;
+import javax.naming.NamingException;
 import javax.servlet.http.HttpSession;
-import javax.ws.rs.GET;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 @ManagedBean
@@ -39,6 +36,7 @@ public class DeviceBean implements Serializable {
     private Device d;
     private String user;
     private String t;
+    private Users dude;
 
     public DeviceBean(){
         d = new Device();
@@ -79,8 +77,30 @@ public class DeviceBean implements Serializable {
                     HttpSession session = SessionUtils.getSession();
                     session.setAttribute(Constants.CHOSEN, t);
                     d = device;
+                    return;
                 }
             }
+    }
+
+    public void subscribe() throws JMSException, NamingException {
+        String name = SessionUtils.getUserName();
+        List<Users> list = new ArrayList<>();
+        list.addAll(this.dao.getAllUsers());
+        for(Users u : list){
+            if(u.getUsername().equals(name)){
+                dude = u;
+            }
+        }
+        Subscription sub = new Subscription();
+        sub.setVerified(false);
+        sub.setSubscribed(d);
+        sub.setUser(dude);
+        dude.addSubscribed(sub);
+        d.addSubscription(sub);
+
+        this.dao.persistSubscription(sub);
+        this.dao.updateUser(dude);
+        this.dao.updateDevice(d);
     }
 
     public String getAvailable() {

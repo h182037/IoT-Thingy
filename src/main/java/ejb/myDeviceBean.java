@@ -88,6 +88,7 @@ public class myDeviceBean implements Serializable {
                 HttpSession session = SessionUtils.getSession();
                 session.setAttribute(Constants.CHOSEN, t);
                 d = device;
+                return;
             }
         }
     }

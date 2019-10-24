@@ -71,6 +71,16 @@ public class subBean implements Serializable {
         }
     }
 
+
+    public void allow(){
+        this.dao.allowSub(d);
+    }
+
+    public void deny(){
+        this.dao.denySub(d);
+    }
+
+
     public String getUser() {
         return user;
     }

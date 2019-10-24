@@ -59,9 +59,11 @@ public class FeedbackBean implements Serializable {
         for(Feedback feedback : feedbackList){
             if(feedback.getAuthor().equals(t)){
                 d = feedback;
+                return;
             }
         }
     }
+
 
 
     public String getUser() {
