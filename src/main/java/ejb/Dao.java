@@ -45,7 +45,6 @@ public class Dao {
 
     public void deleteDevice(Device device) throws NamingException, JMSException{
         deleteSubsAndFeedback(device);
-        em.remove(em.merge(device));
     }
 
     public void persistSubscription(Subscription subscription) throws NamingException, JMSException{
@@ -107,14 +106,19 @@ public class Dao {
     }
 
     private void deleteSubsAndFeedback(Device device){
-        List<Subscription> subs = device.getSubscriptionList();
-        List<Feedback> feedbacks = device.getFeedbackList();
+        Device dev = em.find(Device.class, device.getId());
+        List<Subscription> subs = dev.getSubscriptionList();
+        List<Feedback> feedbacks = dev.getFeedbackList();
 
         for(Subscription s : subs){
-            em.remove(em.merge(s));
+            em.remove(s);
         }
         for(Feedback f : feedbacks){
-            em.remove(em.merge(f));
+            em.remove(f);
         }
+
+        dev.getFeedbackList().clear();
+        dev.getSubscriptionList().clear();;
+        em.remove(dev);
     }
 }
